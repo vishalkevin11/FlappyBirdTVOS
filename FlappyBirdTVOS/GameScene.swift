@@ -47,7 +47,7 @@ var birdIsActive = Bool(false)
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
         self.physicsWorld.contactDelegate = self
-
+        
         //SET UP THE BIRD SPRITES FOR ANIMATION
         birdSprites.append(birdAtlas.textureNamed("player1"))
         birdSprites.append(birdAtlas.textureNamed("player2"))
@@ -57,9 +57,8 @@ var birdIsActive = Bool(false)
         //SET UP THE BACKGROUND IMAGE AND MAKE IT STATIC
         myBackground = SKSpriteNode(imageNamed: "background-image-2")
         myBackground.anchorPoint = CGPointZero;
+        myBackground.size = self.frame.size
         myBackground.position = CGPointMake(0, 0);
-        myBackground.size = self.frame.size;
-       // myBackground. = self.frame;
         
         //BLEND THE BACKGROUND IMAGE WITH THE SAME BACKGROUND COLOR
         self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
@@ -77,13 +76,15 @@ var birdIsActive = Bool(false)
         bottomPipe2 = SKSpriteNode(imageNamed: "bottomPipe")
         topPipe1 = SKSpriteNode(imageNamed: "topPipe")
         topPipe2 = SKSpriteNode(imageNamed: "topPipe")
-        myFloor1.size.width = self.frame.size.width + (self.frame.size.width/2.0);
-        myFloor2.size.width = self.frame.size.width + (self.frame.size.width/2.0)
         myFloor1.anchorPoint = CGPointZero;
-        myFloor1.position = CGPointMake(0, 0);
+        myFloor1.position = CGPointMake(0, 20);
+        
+        myFloor1.size.width = self.frame.size.width;
+        myFloor2.size.width = self.frame.size.width;
+        
+        
         myFloor2.anchorPoint = CGPointZero;
-       // myFloor2.position = CGPointMake(myFloor1.size.width-1, 0);
-         myFloor2.position = CGPointMake(0, 0);
+        myFloor2.position = CGPointMake(myFloor1.size.width-1, 20);
         
         bottomPipe1.position = CGPointMake(800, 200);
         bottomPipe1.size.height = bottomPipe1.size.height / 2
@@ -117,7 +118,7 @@ var birdIsActive = Bool(false)
         addChild(self.bottomPipe2)
         addChild(self.topPipe1)
         addChild(self.topPipe2)
-
+        
         //ADD THE FLOOR TO THE SCENE
         addChild(self.myFloor1)
         addChild(self.myFloor2)
@@ -135,21 +136,21 @@ var birdIsActive = Bool(false)
         bottomPipe2.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "bottomPipe"), size: self.bottomPipe2.size)
         topPipe1.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "topPipe"), size: self.topPipe1.size)
         topPipe2.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "topPipe"), size: self.topPipe2.size)
-
+        
         //PREVENT THE PIPES FROM MOVING AROUND
         bottomPipe1.physicsBody?.dynamic = false
         bottomPipe2.physicsBody?.dynamic = false
         topPipe1.physicsBody?.dynamic = false
         topPipe2.physicsBody?.dynamic = false
-
+        
         myFloor1.physicsBody = SKPhysicsBody(edgeLoopFromRect: myFloor1.frame)
         myFloor2.physicsBody = SKPhysicsBody(edgeLoopFromRect: myFloor1.frame)
-
+        
     }
     
     override func update(currentTime: CFTimeInterval)
     {
-     
+        
         //KEEP THE BIRD CENTERED IN THE MIDDLE OF THE SCREEN
         bird.position.x = self.frame.width / 2
         bird.physicsBody?.allowsRotation = false
@@ -159,11 +160,13 @@ var birdIsActive = Bool(false)
         myFloor2.position = CGPointMake(myFloor2.position.x-8, myFloor2.position.y);
         
         //REPEAT THE FLOOR IN A CONTINIOUS LOOP
-        if (myFloor1.position.x < -myFloor1.size.width){
+        if (myFloor1.position.x < -myFloor1.size.width ){
             myFloor1.position = CGPointMake(myFloor2.position.x + myFloor2.size.width, myFloor1.position.y);
+            print("1111 \(myFloor1.position.x) ")
         }
         if (myFloor2.position.x < -myFloor2.size.width) {
             myFloor2.position = CGPointMake(myFloor1.position.x + myFloor1.size.width, myFloor2.position.y);
+            print("222 \(myFloor2.position.x) ")
         }
         
         //IF THE GAME HAS STARTED, BEGIN SHOWING THE PIPES
