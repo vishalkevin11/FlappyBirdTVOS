@@ -86,25 +86,25 @@ var birdIsActive = Bool(false)
         myFloor2.anchorPoint = CGPointZero;
         myFloor2.position = CGPointMake(myFloor1.size.width-1, 20);
         
-        bottomPipe1.position = CGPointMake(800, 200);
+        bottomPipe1.position = CGPointMake(((self.frame.size.width/2.0) + 800), 200);
         bottomPipe1.size.height = bottomPipe1.size.height / 2
         bottomPipe1.size.width = bottomPipe1.size.width / 2
         bottomPipe1.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe1.physicsBody?.contactTestBitMask = birdCategory
         
-        bottomPipe2.position = CGPointMake(1600, 200);
+        bottomPipe2.position = CGPointMake(((self.frame.size.width/2.0) + 1600), 200);
         bottomPipe2.size.height = bottomPipe2.size.height / 2
         bottomPipe2.size.width = bottomPipe2.size.width / 2
         bottomPipe2.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe2.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe1.position = CGPointMake(800, 200 * 5);
+        topPipe1.position = CGPointMake(((self.frame.size.width/2.0) + 800), 200 * 4);
         topPipe1.size.height = topPipe1.size.height / 2
         topPipe1.size.width = topPipe1.size.width / 2
         topPipe1.physicsBody?.categoryBitMask = pipeCategory
         topPipe1.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe2.position = CGPointMake(1600, 200 * 5);
+        topPipe2.position = CGPointMake(((self.frame.size.width/2.0) + 1600), 200 * 4);
         topPipe2.size.height = topPipe2.size.height / 2
         topPipe2.size.width = topPipe2.size.width / 2
         topPipe2.physicsBody?.categoryBitMask = pipeCategory
@@ -162,28 +162,34 @@ var birdIsActive = Bool(false)
         //REPEAT THE FLOOR IN A CONTINIOUS LOOP
         if (myFloor1.position.x < -myFloor1.size.width ){
             myFloor1.position = CGPointMake(myFloor2.position.x + myFloor2.size.width, myFloor1.position.y);
-            print("1111 \(myFloor1.position.x) ")
+           // print("1111 \(myFloor1.position.x) ")
         }
         if (myFloor2.position.x < -myFloor2.size.width) {
             myFloor2.position = CGPointMake(myFloor1.position.x + myFloor1.size.width, myFloor2.position.y);
-            print("222 \(myFloor2.position.x) ")
+            
         }
         
         //IF THE GAME HAS STARTED, BEGIN SHOWING THE PIPES
         if (start) {
             bottomPipe1.position = CGPointMake(bottomPipe1.position.x-8, 200);
-            bottomPipe2.position = CGPointMake(bottomPipe2.position.x-8, bottomPipe2.position.y);
-            topPipe1.position = CGPointMake(topPipe1.position.x-8, 800);
+            bottomPipe2.position = CGPointMake(bottomPipe2.position.x-8, 200);
+            topPipe1.position = CGPointMake(topPipe1.position.x-8, 750);
             topPipe2.position = CGPointMake(topPipe2.position.x-8, 700);
+         print( "\(bottomPipe1.position.x) < \( -bottomPipe1.size.width + 600 / 2) ")
+           if (bottomPipe1.position.x < -bottomPipe1.size.width){
             
-            if (bottomPipe1.position.x < -bottomPipe1.size.width + 600 / 2){
-                bottomPipe1.position = CGPointMake(bottomPipe2.position.x + bottomPipe2.size.width * 4, pipeHeight);
-                topPipe1.position = CGPointMake(topPipe2.position.x + topPipe2.size.width * 4, pipeHeight);
+        //    if (bottomPipe1.position.x < -(bottomPipe1.size.width)){
+            
+            
+                bottomPipe1.position = CGPointMake(bottomPipe2.position.x + bottomPipe2.size.width * 10, pipeHeight);
+                topPipe1.position = CGPointMake(topPipe2.position.x + topPipe2.size.width * 10, pipeHeight);
             }
             
-            if (bottomPipe2.position.x < -bottomPipe2.size.width + 600 / 2) {
-                bottomPipe2.position = CGPointMake(bottomPipe1.position.x + bottomPipe1.size.width * 4, pipeHeight);
-                topPipe2.position = CGPointMake(topPipe1.position.x + topPipe1.size.width * 4, pipeHeight);
+            if (bottomPipe2.position.x < -bottomPipe2.size.width) {
+        //    if (bottomPipe2.position.x < -(bottomPipe2.size.width)) {
+            // print("2222 \(bottomPipe2.position.x) ")
+                bottomPipe2.position = CGPointMake(bottomPipe1.position.x + bottomPipe1.size.width * 10, pipeHeight);
+                topPipe2.position = CGPointMake(topPipe1.position.x + topPipe1.size.width * 10, pipeHeight);
             }
             
             if (bottomPipe1.position.x < self.frame.width/2)
@@ -229,6 +235,6 @@ var birdIsActive = Bool(false)
     
     func didBeginContact(contact: SKPhysicsContact) {
         //GAMEOVER = TRUE
-        print("BIRD HAS MADE CONTACT")
+        //print("BIRD HAS MADE CONTACT")
     }
 }
