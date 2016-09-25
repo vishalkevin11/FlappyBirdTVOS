@@ -43,7 +43,13 @@ let myPipesTexture = SKTexture(imageNamed: "pipe")
 var myBackground = SKSpriteNode()
 
 //SET AN INITIAL VARIABLE FOR THE RANDOM PIPE SIZE
-var pipeHeight = CGFloat(200)
+var pipeHeight1 = CGFloat(100)
+    var pipeHeight2 = CGFloat(150)
+    var pipeHeight3 = CGFloat(200)
+    var pipeHeight4 = CGFloat(250)
+    
+    var frameHeightDifference = CGFloat(130)
+    var frameTopOffset = CGFloat(85)
 
 //DETERMINE IF THE GAME HAS STARTED OR NOT
 var start = Bool(false)
@@ -52,7 +58,7 @@ var birdIsActive = Bool(false)
     override func didMoveToView(view: SKView) {
         
         //CREATE A BORDER AROUND THE SCREEN
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y+frameTopOffset, self.frame.size.width, self.frame.size.height-frameHeightDifference))
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
         self.physicsWorld.contactDelegate = self
@@ -112,7 +118,7 @@ var birdIsActive = Bool(false)
         let b4X : CGFloat =   (b3X + b1Width + pipeDiffSpace1)
         
         bottomPipe1.position = CGPointMake(b1X, 200);
-        bottomPipe1.size.height = bottomPipe1.size.height / 2
+        bottomPipe1.size.height = pipeHeight1
         bottomPipe1.size.width = bottomPipe1.size.width / 2
         bottomPipe1.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe1.physicsBody?.contactTestBitMask = birdCategory
@@ -121,45 +127,45 @@ var birdIsActive = Bool(false)
         
         
         bottomPipe2.position = CGPointMake(b2X, 200);
-        bottomPipe2.size.height = bottomPipe2.size.height / 2
+        bottomPipe2.size.height = pipeHeight2
         bottomPipe2.size.width = bottomPipe2.size.width / 2
         bottomPipe2.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe2.physicsBody?.contactTestBitMask = birdCategory
         
         bottomPipe3.position = CGPointMake(b3X, 200);
-        bottomPipe3.size.height = bottomPipe3.size.height / 2
+        bottomPipe3.size.height = pipeHeight4
         bottomPipe3.size.width = bottomPipe3.size.width / 2
         bottomPipe3.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe3.physicsBody?.contactTestBitMask = birdCategory
         
         
         bottomPipe4.position = CGPointMake(b4X, 200);
-        bottomPipe4.size.height = bottomPipe4.size.height / 2
+        bottomPipe4.size.height = pipeHeight4
         bottomPipe4.size.width = bottomPipe4.size.width / 2
         bottomPipe4.physicsBody?.categoryBitMask = pipeCategory
         bottomPipe4.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe1.position = CGPointMake(((self.frame.size.width/2.0) + 500), self.frame.size.height);
-        topPipe1.size.height = topPipe1.size.height / 2
+        topPipe1.position = CGPointMake(b1X, 0.0);
+        topPipe1.size.height = pipeHeight1
         topPipe1.size.width = topPipe1.size.width / 2
         topPipe1.physicsBody?.categoryBitMask = pipeCategory
         topPipe1.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe2.position = CGPointMake(((self.frame.size.width/2.0) + 750), self.frame.size.height);
-        topPipe2.size.height = topPipe2.size.height / 2
+        topPipe2.position = CGPointMake(b2X, self.frame.size.height);
+        topPipe2.size.height = pipeHeight2
         topPipe2.size.width = topPipe2.size.width / 2
         topPipe2.physicsBody?.categoryBitMask = pipeCategory
         topPipe2.physicsBody?.contactTestBitMask = birdCategory
         
         
-        topPipe3.position = CGPointMake(((self.frame.size.width/2.0) + 1000), self.frame.size.height);
-        topPipe3.size.height = topPipe3.size.height / 2
+        topPipe3.position = CGPointMake(b3X, self.frame.size.height);
+        topPipe3.size.height = pipeHeight3
         topPipe3.size.width = topPipe3.size.width / 2
         topPipe3.physicsBody?.categoryBitMask = pipeCategory
         topPipe3.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe4.position = CGPointMake(((self.frame.size.width/2.0) + 1250), self.frame.size.height);
-        topPipe4.size.height = topPipe4.size.height / 2
+        topPipe4.position = CGPointMake(b4X, self.frame.size.height);
+        topPipe4.size.height = pipeHeight4
         topPipe4.size.width = topPipe4.size.width / 2
         topPipe4.physicsBody?.categoryBitMask = pipeCategory
         topPipe4.physicsBody?.contactTestBitMask = birdCategory
@@ -170,21 +176,22 @@ var birdIsActive = Bool(false)
         //ADD THE PIPES TO THE SCENE
         addChild(self.bottomPipe1)
         addChild(self.bottomPipe2)
-//        addChild(self.topPipe1)
-//        addChild(self.topPipe2)
-//        
-//        addChild(self.topPipe3)
+          addChild(self.bottomPipe3)
         
-        addChild(self.bottomPipe3)
         addChild(self.bottomPipe4)
-//        addChild(self.topPipe4)
+        addChild(self.topPipe1)
+        addChild(self.topPipe2)
         
+        addChild(self.topPipe3)
+        
+    addChild(self.topPipe4)
+//
         //ADD THE FLOOR TO THE SCENE
-        addChild(self.myFloor1)
-        addChild(self.myFloor2)
+      addChild(self.myFloor1)
+       addChild(self.myFloor2)
         
         //LASTLY, ADD THE BIRD TO THE SCENE
-      //  addChild(self.bird)
+       addChild(self.bird)
         
         //ANIMATE THE BIRD AND REPEAT THE ANIMATION FOREVER
         let animateBird = SKAction.animateWithTextures(self.birdSprites, timePerFrame: 0.1)
@@ -192,6 +199,7 @@ var birdIsActive = Bool(false)
         self.bird.runAction(repeatAction)
         
         //CREATE A PHYSICS BODY FOR THE PIPES AND FLOOR
+      
         bottomPipe1.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "bottomPipe"), size: self.bottomPipe1.size)
         bottomPipe2.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "bottomPipe"), size: self.bottomPipe2.size)
         topPipe1.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "topPipe"), size: self.topPipe1.size)
@@ -245,26 +253,71 @@ var birdIsActive = Bool(false)
         if (start) {
             
        
+            
+            
+            
+            
+            
+//            let topPipePos2 = self.frame.size.height-frameTopOffset  - (topPipe2.size.height/2.0)
+//            let topPipePos3 = self.frame.size.height-frameTopOffset  - (topPipe3.size.height/2.0)
+//            let topPipePos4 = self.frame.size.height-frameTopOffset  - (topPipe4.size.height/2.0)
+            
+            
 //            
             bottomPipe1.position = CGPointMake(bottomPipe1.position.x - speedValue, 200)
             bottomPipe2.position = CGPointMake(bottomPipe2.position.x - speedValue, 200)
             bottomPipe3.position = CGPointMake(bottomPipe3.position.x - speedValue, 200)
             bottomPipe4.position = CGPointMake(bottomPipe4.position.x - speedValue, 200)
             
-            topPipe1.position = CGPointMake(topPipe1.position.x-8, self.frame.size.height - topPipe1.size.height-self.myFloor1.size.height)
-            topPipe2.position = CGPointMake(topPipe2.position.x-8, self.frame.size.height - topPipe2.size.height-self.myFloor1.size.height)
-            topPipe3.position = CGPointMake(topPipe3.position.x-8, self.frame.size.height - topPipe3.size.height-self.myFloor1.size.height)
-            topPipe4.position = CGPointMake(topPipe4.position.x-8, self.frame.size.height - topPipe4.size.height-self.myFloor1.size.height)
+//            pipeHeight1 = randomBetweenNumbers(120, secondNum: 400)
+//            pipeHeight2 = randomBetweenNumbers(120, secondNum: 400)
+//            pipeHeight4 = randomBetweenNumbers(120, secondNum: 400)
+//            pipeHeight4 = randomBetweenNumbers(120, secondNum: 400)
+            
+            var topPipePos1 = self.frame.size.height + frameTopOffset - (pipeHeight1/2.0) - 180
+            var topPipePos2 = self.frame.size.height + frameTopOffset - (pipeHeight2/2.0) - 180
+            var topPipePos3 = self.frame.size.height + frameTopOffset - (pipeHeight3/2.0) - 180
+            var topPipePos4 = self.frame.size.height + frameTopOffset - (pipeHeight4/2.0) - 180
+            
+          //  print("\(topPipePos1)  \(topPipePos2) \(topPipePos3) \(topPipePos4)")
+//            topPipePos1 = 600
+//            topPipePos2 = 600
+//            topPipePos3 = 600
+//            topPipePos4 = 600
+//            topPipePos1 = topPipePos1 - 120
+//            topPipePos2 = topPipePos1 - 120
+//            topPipePos3 = topPipePos1 - 120
+//            topPipePos4 = topPipePos1 - 120
+            print("\(topPipePos1)  \(topPipePos2) \(topPipePos3) \(topPipePos4)")
+            
+            topPipe1.position = CGPointMake(topPipe1.position.x - speedValue, topPipePos1)
+            topPipe2.position = CGPointMake(topPipe2.position.x - speedValue, topPipePos2)
+            topPipe3.position = CGPointMake(topPipe3.position.x - speedValue, topPipePos3)
+            topPipe4.position = CGPointMake(topPipe4.position.x - speedValue, topPipePos4)
+           
+            
+            //topPipe2.position = CGPointMake(topPipe2.position.x - speedValue, self.frame.size.height - topPipe2.size.height-self.myFloor1.size.height)
+            //topPipe3.position = CGPointMake(topPipe3.position.x - speedValue, self.frame.size.height - topPipe3.size.height-self.myFloor1.size.height)
+           // topPipe4.position = CGPointMake(topPipe4.position.x - speedValue, self.frame.size.height - topPipe4.size.height-self.myFloor1.size.height)
   //       print( "\(bottomPipe1.position.x) < \( -bottomPipe1.size.width + 600 / 2) ")
-        
+       
+            
+            
+            
+       //     print("\(topPipePos)")
             if (bottomPipe1.position.x < -bottomPipe1.size.width){
             
         //    if (bottomPipe1.position.x < -(bottomPipe1.size.width)){
            
             
                 bottomPipe1.position = CGPointMake(bottomPipe4.position.x + bottomPipe4.size.width + pipeDiffSpace1, 200);
-                 print("1")
-                topPipe1.position = CGPointMake(topPipe2.position.x + topPipe2.size.width * 10, self.frame.size.height - topPipe1.size.height-self.myFloor1.size.height);
+                
+            //    pipeHeight1 = randomBetweenNumbers(100, secondNum: 150)
+                
+                //print("\(pipeHeight1)-----+ \(topPipePos1)")
+               // let topPipePos = self.frame.size.height - frameTopOffset - (pipeHeight1/2.0) - frameHeightDifference
+                topPipe1.position = CGPointMake(topPipe4.position.x + topPipe4.size.width + pipeDiffSpace1, topPipePos1);
+                
             }
             
            // if (bottomPipe2.position.x < -bottomPipe3.size.width-20) {
@@ -272,7 +325,11 @@ var birdIsActive = Bool(false)
             // print("2222 \(bottomPipe2.position.x) ")
                 bottomPipe2.position = CGPointMake(bottomPipe1.position.x + bottomPipe1.size.width + pipeDiffSpace1, 200);
                 print("2")
-                topPipe2.position = CGPointMake(topPipe1.position.x + topPipe1.size.width * 10, self.frame.size.height - topPipe2.size.height-self.myFloor1.size.height);
+              //  pipeHeight2 = randomBetweenNumbers(100, secondNum: 150)
+                
+                //let topPipePos = self.frame.size.height-frameTopOffset  - (pipeHeight2/2.0)
+                topPipe2.position = CGPointMake(topPipe1.position.x + topPipe1.size.width + pipeDiffSpace1, topPipePos2);
+                
             }
             
             
@@ -281,25 +338,33 @@ var birdIsActive = Bool(false)
                 // print("2222 \(bottomPipe2.position.x) ")
                 bottomPipe3.position = CGPointMake(bottomPipe2.position.x + bottomPipe2.size.width + pipeDiffSpace1, 200);
                         print("3")
-                topPipe3.position = CGPointMake(topPipe3.position.x + topPipe3.size.width * 10, self.frame.size.height - topPipe3.size.height-self.myFloor1.size.height);
+                 //       pipeHeight3 = randomBetweenNumbers(100, secondNum: 150)
+                        
+                     //   let topPipePos = self.frame.size.height-frameTopOffset  - (pipeHeight3/2.0)
+                topPipe3.position = CGPointMake(topPipe2.position.x + topPipe2.size.width + pipeDiffSpace1, topPipePos3);
             }
             
           //  if (bottomPipe4.position.x < -bottomPipe1.size.width-20) {
                     if (bottomPipe4.position.x < -(bottomPipe4.size.width)) {
                 // print("2222 \(bottomPipe2.position.x) ")
                         print("4")
+                        
+                  //      let topPipePos = self.frame.size.height-frameTopOffset  - (pipeHeight4/2.0)
                 bottomPipe4.position = CGPointMake(bottomPipe3.position.x + bottomPipe3.size.width + pipeDiffSpace1, 200);
-                topPipe4.position = CGPointMake(topPipe4.position.x + topPipe4.size.width * 10, self.frame.size.height - topPipe4.size.height-self.myFloor1.size.height);
+                        
+                   //     pipeHeight4 = randomBetweenNumbers(100, secondNum: 150)
+                        
+                topPipe4.position = CGPointMake(topPipe3.position.x + topPipe3.size.width + pipeDiffSpace1, topPipePos4);
             }
             
             
-            if (bottomPipe1.position.x < self.frame.width/2)
-            {
-                //GENERATE A RANDOM NUMBER BETWEEN 100 AND 240 (THE MAXIMUM SIZE OF THE PIPES)
-                pipeHeight = randomBetweenNumbers(100, secondNum: 200)
-              //  print("pipe \(pipeHeight)")
-                
-            }
+//            if (bottomPipe1.position.x < self.frame.width/2)
+//            {
+//                //GENERATE A RANDOM NUMBER BETWEEN 100 AND 240 (THE MAXIMUM SIZE OF THE PIPES)
+//                pipeHeight = randomBetweenNumbers(120, secondNum: 400)
+//              //  print("pipe \(pipeHeight)")
+//                
+//            }
            
         }
     }
