@@ -53,8 +53,8 @@ var pipeHeight1 = CGFloat(100)
     
      var bottomPipeHeight = CGFloat(250)
     
-    var frameHeightDifference = CGFloat(130)
-    var frameTopOffset = CGFloat(90)
+    var frameHeightDifference = CGFloat(230)
+    var frameTopOffset = CGFloat(87)
 
 //DETERMINE IF THE GAME HAS STARTED OR NOT
 var start = Bool(false)
@@ -63,7 +63,9 @@ var birdIsActive = Bool(false)
     override func didMoveToView(view: SKView) {
         
         //CREATE A BORDER AROUND THE SCREEN
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y+frameTopOffset, self.frame.size.width, self.frame.size.height-frameHeightDifference))
+      //  self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y+frameTopOffset, self.frame.size.width, self.frame.size.height-frameHeightDifference))
+        
+          self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
         self.physicsWorld.contactDelegate = self
@@ -122,6 +124,8 @@ var birdIsActive = Bool(false)
         let b3X : CGFloat =   (b2X + b1Width + pipeDiffSpace1)
         let b4X : CGFloat =   (b3X + b1Width + pipeDiffSpace1)
         
+        
+        
         bottomPipe1.position = CGPointMake(b1X, 200);
         bottomPipe1.size.height = 200
         bottomPipe1.size.width = bottomPipe1.size.width / 2
@@ -179,24 +183,22 @@ var birdIsActive = Bool(false)
      //   addChild(self.myBackground)
         
         //ADD THE PIPES TO THE SCENE
-        addChild(self.bottomPipe1)
-        addChild(self.bottomPipe2)
-          addChild(self.bottomPipe3)
+//        addChild(self.bottomPipe1)
+//        addChild(self.bottomPipe2)
+//        addChild(self.bottomPipe3)
+//        addChild(self.bottomPipe4)
         
-        addChild(self.bottomPipe4)
-        addChild(self.topPipe1)
-        addChild(self.topPipe2)
-        
-        addChild(self.topPipe3)
-        
-    addChild(self.topPipe4)
+//        addChild(self.topPipe1)
+//        addChild(self.topPipe2)
+//        addChild(self.topPipe3)
+//        addChild(self.topPipe4)
 //
         //ADD THE FLOOR TO THE SCENE
-      addChild(self.myFloor1)
-       addChild(self.myFloor2)
+     addChild(self.myFloor1)
+     addChild(self.myFloor2)
         
         //LASTLY, ADD THE BIRD TO THE SCENE
-     //  addChild(self.bird)
+       addChild(self.bird)
         
         //ANIMATE THE BIRD AND REPEAT THE ANIMATION FOREVER
         let animateBird = SKAction.animateWithTextures(self.birdSprites, timePerFrame: 0.1)
