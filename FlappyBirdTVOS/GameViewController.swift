@@ -25,12 +25,24 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController , AsyncServerDelegate {
+    
+    @IBOutlet weak var labelHello: UILabel!
+    
+    let server = AsyncServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+        server.serviceType = "_ClientServer._tcp"
+        server.serviceName = "tvOS"
+        
+        server.delegate = self
+        server.start()
+        
+        // from existing game
+        
+    /*    if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
@@ -46,9 +58,52 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
-        }
+        }*/
         
     }
+    
+    
+    // MARK: Phone to TV connection Delegates
+    
+    
+    func server(theServer: AsyncServer!, didConnect connection: AsyncConnection!) {
+        print("didconnect")
+        print(connection)
+    }
+    
+    func server(theServer: AsyncServer!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!) {
+        print("didreceivecommand")
+        print(command)
+        print(object)
+        
+        let dayTimePeriodFormatter = NSDateFormatter()
+        dayTimePeriodFormatter.dateFormat = "ss"
+        
+        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
+        
+        
+       // labelHello.text = object as? String
+        labelHello.text = dateString
+    }
+    
+    func server(theServer: AsyncServer!, didDisconnect connection: AsyncConnection!) {
+        print("disconnected server")
+    }
+    
+    func server(theServer: AsyncServer!, didFailWithError error: NSError!) {
+        print("didfail")
+    }
+    
+    //    func server(theServer: AsyncServer!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!, responseBlock block: AsyncNetworkResponseBlock!) {
+    //        print("didreceivecommand - response block")
+    //    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     
 //    override func shouldAutorotate() -> Bool {
 //        return true

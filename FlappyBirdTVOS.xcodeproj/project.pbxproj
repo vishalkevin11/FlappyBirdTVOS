@@ -7,6 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9920BFD31D9BA5EC00F9A9F6 /* AsyncBroadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BF9E1D9BA5EC00F9A9F6 /* AsyncBroadcaster.m */; };
+		9920BFD41D9BA5EC00F9A9F6 /* AsyncClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA01D9BA5EC00F9A9F6 /* AsyncClient.m */; };
+		9920BFD51D9BA5EC00F9A9F6 /* AsyncConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA21D9BA5EC00F9A9F6 /* AsyncConnection.m */; };
+		9920BFD61D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9920BFA31D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist */; };
+		9920BFD71D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA71D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.m */; };
+		9920BFD81D9BA5EC00F9A9F6 /* AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA91D9BA5EC00F9A9F6 /* AsyncRequest.m */; };
+		9920BFD91D9BA5EC00F9A9F6 /* AsyncServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFAB1D9BA5EC00F9A9F6 /* AsyncServer.m */; };
+		9920BFDA1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFAD1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.m */; };
+		9920BFDB1D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9920BFB01D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec */; };
+		9920BFDC1D9BA5EC00F9A9F6 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9920BFB21D9BA5EC00F9A9F6 /* Documentation.html */; };
+		9920BFDD1D9BA5EC00F9A9F6 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFB41D9BA5EC00F9A9F6 /* GCDAsyncSocket.m */; };
+		9920BFDE1D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFB61D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.m */; };
+		9920BFDF1D9BA5EC00F9A9F6 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFB71D9BA5EC00F9A9F6 /* README.markdown */; };
+		9920BFE01D9BA5EC00F9A9F6 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFBA1D9BA5EC00F9A9F6 /* AsyncSocket.m */; };
+		9920BFE11D9BA5EC00F9A9F6 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFBC1D9BA5EC00F9A9F6 /* AsyncUdpSocket.m */; };
+		9920BFE21D9BA5EC00F9A9F6 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9920BFBD1D9BA5EC00F9A9F6 /* Documentation.html */; };
+		9920BFE31D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFC11D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.m */; };
+		9920BFE41D9BA5EC00F9A9F6 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFC31D9BA5EC00F9A9F6 /* DDASLLogger.m */; };
+		9920BFE51D9BA5EC00F9A9F6 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFC51D9BA5EC00F9A9F6 /* DDFileLogger.m */; };
+		9920BFE61D9BA5EC00F9A9F6 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFC81D9BA5EC00F9A9F6 /* DDLog.m */; };
+		9920BFE71D9BA5EC00F9A9F6 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFCA1D9BA5EC00F9A9F6 /* DDTTYLogger.m */; };
+		9920BFE81D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFCD1D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.m */; };
+		9920BFE91D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFCF1D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.m */; };
+		9920BFEA1D9BA5EC00F9A9F6 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFD11D9BA5EC00F9A9F6 /* DDMultiFormatter.m */; };
+		9920BFEB1D9BA5EC00F9A9F6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9920BFD21D9BA5EC00F9A9F6 /* README.txt */; };
 		9934D9B01D867E8400F308F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934D9AF1D867E8400F308F0 /* AppDelegate.swift */; };
 		9934D9B21D867E8400F308F0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9934D9B11D867E8400F308F0 /* art.scnassets */; };
 		9934D9B41D867E8400F308F0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934D9B31D867E8400F308F0 /* GameViewController.swift */; };
@@ -25,6 +50,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9920BF9D1D9BA5EC00F9A9F6 /* AsyncBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncBroadcaster.h; sourceTree = "<group>"; };
+		9920BF9E1D9BA5EC00F9A9F6 /* AsyncBroadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncBroadcaster.m; sourceTree = "<group>"; };
+		9920BF9F1D9BA5EC00F9A9F6 /* AsyncClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncClient.h; sourceTree = "<group>"; };
+		9920BFA01D9BA5EC00F9A9F6 /* AsyncClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncClient.m; sourceTree = "<group>"; };
+		9920BFA11D9BA5EC00F9A9F6 /* AsyncConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncConnection.h; sourceTree = "<group>"; };
+		9920BFA21D9BA5EC00F9A9F6 /* AsyncConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncConnection.m; sourceTree = "<group>"; };
+		9920BFA31D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AsyncNetwork-Info.plist"; sourceTree = "<group>"; };
+		9920BFA41D9BA5EC00F9A9F6 /* AsyncNetwork-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AsyncNetwork-Prefix.pch"; sourceTree = "<group>"; };
+		9920BFA51D9BA5EC00F9A9F6 /* AsyncNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncNetwork.h; sourceTree = "<group>"; };
+		9920BFA61D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncNetworkHelpers.h; sourceTree = "<group>"; };
+		9920BFA71D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncNetworkHelpers.m; sourceTree = "<group>"; };
+		9920BFA81D9BA5EC00F9A9F6 /* AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncRequest.h; sourceTree = "<group>"; };
+		9920BFA91D9BA5EC00F9A9F6 /* AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncRequest.m; sourceTree = "<group>"; };
+		9920BFAA1D9BA5EC00F9A9F6 /* AsyncServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncServer.h; sourceTree = "<group>"; };
+		9920BFAB1D9BA5EC00F9A9F6 /* AsyncServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncServer.m; sourceTree = "<group>"; };
+		9920BFAC1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNetService+AsyncRequest.h"; sourceTree = "<group>"; };
+		9920BFAD1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNetService+AsyncRequest.m"; sourceTree = "<group>"; };
+		9920BFAE1D9BA5EC00F9A9F6 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		9920BFB01D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CocoaAsyncSocket.podspec; sourceTree = "<group>"; };
+		9920BFB21D9BA5EC00F9A9F6 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		9920BFB31D9BA5EC00F9A9F6 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		9920BFB41D9BA5EC00F9A9F6 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		9920BFB51D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		9920BFB61D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		9920BFB71D9BA5EC00F9A9F6 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		9920BFB91D9BA5EC00F9A9F6 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		9920BFBA1D9BA5EC00F9A9F6 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		9920BFBB1D9BA5EC00F9A9F6 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		9920BFBC1D9BA5EC00F9A9F6 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		9920BFBD1D9BA5EC00F9A9F6 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		9920BFC01D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		9920BFC11D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		9920BFC21D9BA5EC00F9A9F6 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		9920BFC31D9BA5EC00F9A9F6 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		9920BFC41D9BA5EC00F9A9F6 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		9920BFC51D9BA5EC00F9A9F6 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		9920BFC61D9BA5EC00F9A9F6 /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
+		9920BFC71D9BA5EC00F9A9F6 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		9920BFC81D9BA5EC00F9A9F6 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		9920BFC91D9BA5EC00F9A9F6 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		9920BFCA1D9BA5EC00F9A9F6 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		9920BFCC1D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		9920BFCD1D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		9920BFCE1D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		9920BFCF1D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		9920BFD01D9BA5EC00F9A9F6 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		9920BFD11D9BA5EC00F9A9F6 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		9920BFD21D9BA5EC00F9A9F6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		9934D9AC1D867E8400F308F0 /* FlappyBirdTVOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBirdTVOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9934D9AF1D867E8400F308F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9934D9B11D867E8400F308F0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -55,6 +128,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9920BF9B1D9BA5EC00F9A9F6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9920BF9C1D9BA5EC00F9A9F6 /* AsyncNetwork */,
+				9920BFAE1D9BA5EC00F9A9F6 /* BridgingHeader.h */,
+				9920BFAF1D9BA5EC00F9A9F6 /* CocoaAsyncSocket */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9920BF9C1D9BA5EC00F9A9F6 /* AsyncNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				9920BF9D1D9BA5EC00F9A9F6 /* AsyncBroadcaster.h */,
+				9920BF9E1D9BA5EC00F9A9F6 /* AsyncBroadcaster.m */,
+				9920BF9F1D9BA5EC00F9A9F6 /* AsyncClient.h */,
+				9920BFA01D9BA5EC00F9A9F6 /* AsyncClient.m */,
+				9920BFA11D9BA5EC00F9A9F6 /* AsyncConnection.h */,
+				9920BFA21D9BA5EC00F9A9F6 /* AsyncConnection.m */,
+				9920BFA31D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist */,
+				9920BFA41D9BA5EC00F9A9F6 /* AsyncNetwork-Prefix.pch */,
+				9920BFA51D9BA5EC00F9A9F6 /* AsyncNetwork.h */,
+				9920BFA61D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.h */,
+				9920BFA71D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.m */,
+				9920BFA81D9BA5EC00F9A9F6 /* AsyncRequest.h */,
+				9920BFA91D9BA5EC00F9A9F6 /* AsyncRequest.m */,
+				9920BFAA1D9BA5EC00F9A9F6 /* AsyncServer.h */,
+				9920BFAB1D9BA5EC00F9A9F6 /* AsyncServer.m */,
+				9920BFAC1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.h */,
+				9920BFAD1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.m */,
+			);
+			path = AsyncNetwork;
+			sourceTree = "<group>";
+		};
+		9920BFAF1D9BA5EC00F9A9F6 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFB01D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec */,
+				9920BFB11D9BA5EC00F9A9F6 /* GCD */,
+				9920BFB71D9BA5EC00F9A9F6 /* README.markdown */,
+				9920BFB81D9BA5EC00F9A9F6 /* RunLoop */,
+				9920BFBE1D9BA5EC00F9A9F6 /* Vendor */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		9920BFB11D9BA5EC00F9A9F6 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFB21D9BA5EC00F9A9F6 /* Documentation.html */,
+				9920BFB31D9BA5EC00F9A9F6 /* GCDAsyncSocket.h */,
+				9920BFB41D9BA5EC00F9A9F6 /* GCDAsyncSocket.m */,
+				9920BFB51D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.h */,
+				9920BFB61D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		9920BFB81D9BA5EC00F9A9F6 /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFB91D9BA5EC00F9A9F6 /* AsyncSocket.h */,
+				9920BFBA1D9BA5EC00F9A9F6 /* AsyncSocket.m */,
+				9920BFBB1D9BA5EC00F9A9F6 /* AsyncUdpSocket.h */,
+				9920BFBC1D9BA5EC00F9A9F6 /* AsyncUdpSocket.m */,
+				9920BFBD1D9BA5EC00F9A9F6 /* Documentation.html */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		9920BFBE1D9BA5EC00F9A9F6 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFBF1D9BA5EC00F9A9F6 /* CocoaLumberjack */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		9920BFBF1D9BA5EC00F9A9F6 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFC01D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.h */,
+				9920BFC11D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.m */,
+				9920BFC21D9BA5EC00F9A9F6 /* DDASLLogger.h */,
+				9920BFC31D9BA5EC00F9A9F6 /* DDASLLogger.m */,
+				9920BFC41D9BA5EC00F9A9F6 /* DDFileLogger.h */,
+				9920BFC51D9BA5EC00F9A9F6 /* DDFileLogger.m */,
+				9920BFC61D9BA5EC00F9A9F6 /* DDLog+LOGV.h */,
+				9920BFC71D9BA5EC00F9A9F6 /* DDLog.h */,
+				9920BFC81D9BA5EC00F9A9F6 /* DDLog.m */,
+				9920BFC91D9BA5EC00F9A9F6 /* DDTTYLogger.h */,
+				9920BFCA1D9BA5EC00F9A9F6 /* DDTTYLogger.m */,
+				9920BFCB1D9BA5EC00F9A9F6 /* Extensions */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		9920BFCB1D9BA5EC00F9A9F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9920BFCC1D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.h */,
+				9920BFCD1D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.m */,
+				9920BFCE1D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.h */,
+				9920BFCF1D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.m */,
+				9920BFD01D9BA5EC00F9A9F6 /* DDMultiFormatter.h */,
+				9920BFD11D9BA5EC00F9A9F6 /* DDMultiFormatter.m */,
+				9920BFD21D9BA5EC00F9A9F6 /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9934D9A31D867E8400F308F0 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +258,7 @@
 		9934D9AE1D867E8400F308F0 /* FlappyBirdTVOS */ = {
 			isa = PBXGroup;
 			children = (
+				9920BF9B1D9BA5EC00F9A9F6 /* Utils */,
 				9934D9AF1D867E8400F308F0 /* AppDelegate.swift */,
 				9955A22F1D8A532A004B99D8 /* background-image-1.png */,
 				9955A2331D8A69D3004B99D8 /* background-image-2.png */,
@@ -153,9 +338,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9920BFDB1D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec in Resources */,
+				9920BFEB1D9BA5EC00F9A9F6 /* README.txt in Resources */,
 				9955A2341D8A69D3004B99D8 /* background-image-2.png in Resources */,
 				9934D9C91D867EFF00F308F0 /* floor.png in Resources */,
 				9934D9B21D867E8400F308F0 /* art.scnassets in Resources */,
+				9920BFD61D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist in Resources */,
 				9934D9C71D867EFF00F308F0 /* background.png in Resources */,
 				9955A2321D8A6890004B99D8 /* player2.atlas in Resources */,
 				9934D9B91D867E8400F308F0 /* Assets.xcassets in Resources */,
@@ -164,7 +352,9 @@
 				9934D9CA1D867EFF00F308F0 /* GameScene.sks in Resources */,
 				9955A2301D8A532A004B99D8 /* background-image-1.png in Resources */,
 				9934D9C81D867EFF00F308F0 /* bottomPipe.png in Resources */,
+				9920BFDC1D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
 				9934D9B71D867E8400F308F0 /* Main.storyboard in Resources */,
+				9920BFE21D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +365,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9920BFD81D9BA5EC00F9A9F6 /* AsyncRequest.m in Sources */,
+				9920BFE71D9BA5EC00F9A9F6 /* DDTTYLogger.m in Sources */,
+				9920BFDA1D9BA5EC00F9A9F6 /* NSNetService+AsyncRequest.m in Sources */,
 				9934D9CB1D867EFF00F308F0 /* GameScene.swift in Sources */,
+				9920BFD31D9BA5EC00F9A9F6 /* AsyncBroadcaster.m in Sources */,
+				9920BFDE1D9BA5EC00F9A9F6 /* GCDAsyncUdpSocket.m in Sources */,
+				9920BFD91D9BA5EC00F9A9F6 /* AsyncServer.m in Sources */,
+				9920BFEA1D9BA5EC00F9A9F6 /* DDMultiFormatter.m in Sources */,
+				9920BFE31D9BA5EC00F9A9F6 /* DDAbstractDatabaseLogger.m in Sources */,
+				9920BFE51D9BA5EC00F9A9F6 /* DDFileLogger.m in Sources */,
+				9920BFE81D9BA5EC00F9A9F6 /* DDContextFilterLogFormatter.m in Sources */,
+				9920BFE11D9BA5EC00F9A9F6 /* AsyncUdpSocket.m in Sources */,
+				9920BFDF1D9BA5EC00F9A9F6 /* README.markdown in Sources */,
+				9920BFD41D9BA5EC00F9A9F6 /* AsyncClient.m in Sources */,
+				9920BFE91D9BA5EC00F9A9F6 /* DDDispatchQueueLogFormatter.m in Sources */,
 				9934D9B41D867E8400F308F0 /* GameViewController.swift in Sources */,
+				9920BFE41D9BA5EC00F9A9F6 /* DDASLLogger.m in Sources */,
+				9920BFD71D9BA5EC00F9A9F6 /* AsyncNetworkHelpers.m in Sources */,
+				9920BFD51D9BA5EC00F9A9F6 /* AsyncConnection.m in Sources */,
+				9920BFDD1D9BA5EC00F9A9F6 /* GCDAsyncSocket.m in Sources */,
 				9934D9B01D867E8400F308F0 /* AppDelegate.swift in Sources */,
+				9920BFE01D9BA5EC00F9A9F6 /* AsyncSocket.m in Sources */,
+				9920BFE61D9BA5EC00F9A9F6 /* DDLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdTVOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = FlappyBirdTVOS/Utils/BridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -302,6 +513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdTVOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = FlappyBirdTVOS/Utils/BridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
