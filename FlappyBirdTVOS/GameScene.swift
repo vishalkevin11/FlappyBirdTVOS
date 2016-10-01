@@ -275,14 +275,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         //ADD THE PIPES TO THE SCENE
         addChild(self.bottomPipe1)
-      //  addChild(self.bottomPipe2)
+        addChild(self.bottomPipe2)
         addChild(self.bottomPipe3)
-        //addChild(self.bottomPipe4)
+        addChild(self.bottomPipe4)
         
-//        addChild(self.topPipe1)
-//        addChild(self.topPipe2)
-//        addChild(self.topPipe3)
-//        addChild(self.topPipe4)
+        addChild(self.topPipe1)
+        addChild(self.topPipe2)
+        addChild(self.topPipe3)
+        addChild(self.topPipe4)
         //
         //ADD THE FLOOR TO THE SCENE
         addChild(self.myFloor1)
@@ -435,7 +435,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //MAKE A CIRCULAR BORDER AROUND THE BIRD
         //bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.frame.size.width/2.0)
         bird.physicsBody = SKPhysicsBody(circleOfRadius: 17.0)
-        bird.physicsBody?.linearDamping = 0.6
+        bird.physicsBody?.linearDamping = 0.55
         //bird.physicsBody?.angularDamping = 0.2
         bird.physicsBody?.restitution = 0.2
         //CREATE A BIT MASK AROUND THE BIRD
@@ -450,15 +450,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         //GAMEOVER = TRUE
 //        
-        let nodeName : String = (contact.bodyA.node?.name)!
+        let nodeName : String? = contact.bodyA.node?.name
         
-        
-        if ((nodeName != "floor1") && (nodeName != "floor2")){
-           print("BIRD HAS MADE CONTACT\(nodeName)")   
+        if (nodeName != nil) {
+            if ((nodeName != "floor1") && (nodeName != "floor2")){
+                print("BIRD HAS MADE CONTACT\(nodeName)")
+            }
         }
         
     }
     
+    
+    // MARK: Reciever Delegated
+    
+    
+    // MARK : Remote Reciever delegate
+    
+//    func didReceiveMessage(userInfo: [NSObject : AnyObject]!) {
+//        
+//        
+////        let statusStr = userInfo?["status"] as! String
+////        let playerViewController = PlayerViewController()
+////        
+////        if statusStr == "play" {
+////            
+////            let urlStr = userInfo?["videoURL"] as! String
+////            if urlStr.isEmpty == false {
+////                
+////                playerViewController.playVideo(urlStr as String)
+////                self.presentViewController(playerViewController, animated: true, completion: nil)
+////            }
+////        }
+////        else if statusStr == "stop"{
+////            playerViewController.stopVideo()
+////            self.dismissViewControllerAnimated(true, completion: {
+////                
+////            })
+////        }
+////        
+//        
+//    }
     
     func server(theServer: AsyncServer!, didConnect connection: AsyncConnection!) {
         //print("didconnect")
@@ -493,7 +524,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 97))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 90))
         }
         else
         {
