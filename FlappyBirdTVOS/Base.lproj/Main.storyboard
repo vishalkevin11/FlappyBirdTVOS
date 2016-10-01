@@ -15,26 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="8si-d1-aiN" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mt-6t-3Hd">
-                                <rect key="frame" x="20" y="27" width="1880" height="219"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="219" id="Rrs-hw-xd4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="6Mt-6t-3Hd" firstAttribute="leading" secondItem="8si-d1-aiN" secondAttribute="leading" constant="20" id="6mK-HJ-gqO"/>
-                            <constraint firstItem="6Mt-6t-3Hd" firstAttribute="top" secondItem="D5o-sx-Xx0" secondAttribute="bottom" constant="27" id="StZ-4v-lJu"/>
-                            <constraint firstAttribute="trailing" secondItem="6Mt-6t-3Hd" secondAttribute="trailing" constant="20" id="osj-H0-9Ym"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="labelHello" destination="6Mt-6t-3Hd" id="DFt-Qr-WgI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubr-7B-cQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990EB4781D9EF12D00D75EFA /* play_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 990EB4761D9EF12D00D75EFA /* play_btn.png */; };
 		9920BFD31D9BA5EC00F9A9F6 /* AsyncBroadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BF9E1D9BA5EC00F9A9F6 /* AsyncBroadcaster.m */; };
 		9920BFD41D9BA5EC00F9A9F6 /* AsyncClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA01D9BA5EC00F9A9F6 /* AsyncClient.m */; };
 		9920BFD51D9BA5EC00F9A9F6 /* AsyncConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BFA21D9BA5EC00F9A9F6 /* AsyncConnection.m */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990EB4761D9EF12D00D75EFA /* play_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_btn.png; sourceTree = "<group>"; };
 		9920BF9D1D9BA5EC00F9A9F6 /* AsyncBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncBroadcaster.h; sourceTree = "<group>"; };
 		9920BF9E1D9BA5EC00F9A9F6 /* AsyncBroadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncBroadcaster.m; sourceTree = "<group>"; };
 		9920BF9F1D9BA5EC00F9A9F6 /* AsyncClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncClient.h; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				9934D9C01D867EFF00F308F0 /* background.png */,
 				9934D9C11D867EFF00F308F0 /* bottomPipe.png */,
 				9934D9C21D867EFF00F308F0 /* floor.png */,
+				990EB4761D9EF12D00D75EFA /* play_btn.png */,
 				9934D9C31D867EFF00F308F0 /* GameScene.sks */,
 				9934D9C41D867EFF00F308F0 /* GameScene.swift */,
 				9955A2311D8A6890004B99D8 /* player2.atlas */,
@@ -353,6 +356,7 @@
 				9955A2301D8A532A004B99D8 /* background-image-1.png in Resources */,
 				9934D9C81D867EFF00F308F0 /* bottomPipe.png in Resources */,
 				9920BFDC1D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
+				990EB4781D9EF12D00D75EFA /* play_btn.png in Resources */,
 				9934D9B71D867E8400F308F0 /* Main.storyboard in Resources */,
 				9920BFE21D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
 			);

@@ -25,28 +25,31 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController , AsyncServerDelegate {
+//class GameViewController: UIViewController , AsyncServerDelegate {
+
+class GameViewController: UIViewController {
     
     @IBOutlet weak var labelHello: UILabel!
     
-    let server = AsyncServer()
+   
+//    let server = AsyncServer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.serviceType = "_ClientServer._tcp"
-        server.serviceName = "tvOS"
-        
-        server.delegate = self
-        server.start()
+//        server.serviceType = "_ClientServer._tcp"
+//        server.serviceName = "tvOS"
+//        
+//        server.delegate = self
+//        server.start()
         
         // from existing game
-        
-    /*    if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
+            skView.allowsTransparency  = false
             
             //SHOW THE PHSYICS BORDERS
             //skView.showsPhysics = true
@@ -57,11 +60,13 @@ class GameViewController: UIViewController , AsyncServerDelegate {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            skView.presentScene(scene)
-        }*/
+            skView.presentScene(scene, transition: SKTransition.fadeWithColor(UIColor.redColor(), duration: 0.3))
+        }
         
     }
     
+    
+    /*
     
     // MARK: Phone to TV connection Delegates
     
@@ -76,14 +81,14 @@ class GameViewController: UIViewController , AsyncServerDelegate {
         print(command)
         print(object)
         
-        let dayTimePeriodFormatter = NSDateFormatter()
-        dayTimePeriodFormatter.dateFormat = "ss"
-        
-        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
+//        let dayTimePeriodFormatter = NSDateFormatter()
+//        dayTimePeriodFormatter.dateFormat = "ss"
+//        
+//        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
         
         
        // labelHello.text = object as? String
-        labelHello.text = dateString
+        labelHello.text = object as? String
     }
     
     func server(theServer: AsyncServer!, didDisconnect connection: AsyncConnection!) {
@@ -98,11 +103,36 @@ class GameViewController: UIViewController , AsyncServerDelegate {
     //        print("didreceivecommand - response block")
     //    }
     
+ 
+ */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func playTheGame(sender: AnyObject) {
+        
+        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            // Configure the view.
+            let skView = self.view as! SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            skView.allowsTransparency  = false
+            
+            //SHOW THE PHSYICS BORDERS
+            //skView.showsPhysics = true
+            
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = false
+            
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .AspectFill
+            
+            skView.presentScene(scene, transition: SKTransition.fadeWithColor(UIColor.redColor(), duration: 0.3))
+        }
+        
+    }
     
     
 //    override func shouldAutorotate() -> Bool {
