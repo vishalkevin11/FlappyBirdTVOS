@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
      let server = AsyncServer()
     
     
+    //let pipeDiffSpace1 : CGFloat = 420
     let pipeDiffSpace1 : CGFloat = 420
     let pipeDiffSpace2 : CGFloat = 300
     
@@ -22,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     
     
-    let speedValue : CGFloat = 4.0
+    let speedValue : CGFloat = 3.0
     let MAX_PIPE_HEIGHT : CGFloat = 300.0
     let MIN_PIPE_HEIGHT : CGFloat = 200.0
     
@@ -123,6 +124,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
+        self.physicsWorld.gravity = CGVectorMake(0, -3.5)
+
         self.physicsWorld.contactDelegate = self
         
         //SET UP THE BIRD SPRITES FOR ANIMATION
@@ -245,26 +248,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         
         
-        topPipe1.position = CGPointMake(b1X, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight1))
+        topPipe1.position = CGPointMake(b1X + (pipeDiffSpace1 / 2.0), self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight1))
         topPipe1.size.height = self.getHeightForTopPipeFromBottomPipeHeight(btmPipeHeight1)
         topPipe1.size.width = topPipe1.size.width / 2
         topPipe1.physicsBody?.categoryBitMask = pipeCategory
         topPipe1.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe2.position = CGPointMake(b2X, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight2))
+        topPipe2.position = CGPointMake(b2X + (pipeDiffSpace1 / 2.0), self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight2))
         topPipe2.size.height = self.getHeightForTopPipeFromBottomPipeHeight(btmPipeHeight2)
         topPipe2.size.width = topPipe2.size.width / 2
         topPipe2.physicsBody?.categoryBitMask = pipeCategory
         topPipe2.physicsBody?.contactTestBitMask = birdCategory
         
         
-        topPipe3.position = CGPointMake(b3X, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight3))
+        topPipe3.position = CGPointMake(b3X + (pipeDiffSpace1 / 2.0), self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight3))
         topPipe3.size.height = self.getHeightForTopPipeFromBottomPipeHeight(btmPipeHeight3)
         topPipe3.size.width = topPipe3.size.width / 2
         topPipe3.physicsBody?.categoryBitMask = pipeCategory
         topPipe3.physicsBody?.contactTestBitMask = birdCategory
         
-        topPipe4.position = CGPointMake(b4X, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight4))
+        topPipe4.position = CGPointMake(b4X + (pipeDiffSpace1 / 2.0), self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight4))
         topPipe4.size.height = self.getHeightForTopPipeFromBottomPipeHeight(btmPipeHeight4)
         topPipe4.size.width = topPipe4.size.width / 2
         topPipe4.physicsBody?.categoryBitMask = pipeCategory
@@ -366,7 +369,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
             
             
-            if (bottomPipe1.position.x < -bottomPipe1.size.width){
+            if (bottomPipe1.position.x < -(bottomPipe1.size.width + (pipeDiffSpace1 / 2.0))){
                 
                 
                 btmPipeHeight1 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
@@ -379,7 +382,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                 
             }
             
-            if (bottomPipe2.position.x < -(bottomPipe2.size.width)) {
+            if (bottomPipe2.position.x < -(bottomPipe2.size.width + (pipeDiffSpace1 / 2.0))) {
                 
                 btmPipeHeight2 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe2.size.height = btmPipeHeight2
@@ -390,7 +393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                 topPipe2.position = CGPointMake(topPipe1.position.x + topPipe1.size.width + pipeDiffSpace1,  self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight2))
             }
             
-            if (bottomPipe3.position.x < -(bottomPipe3.size.width)) {
+            if (bottomPipe3.position.x < -(bottomPipe3.size.width + (pipeDiffSpace1 / 2.0))) {
                 
                 btmPipeHeight3 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe3.size.height = btmPipeHeight3
@@ -401,7 +404,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                 topPipe3.position = CGPointMake(topPipe2.position.x + topPipe2.size.width + pipeDiffSpace1,  self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight3))
             }
             
-            if (bottomPipe4.position.x < -(bottomPipe4.size.width)) {
+            if (bottomPipe4.position.x < -(bottomPipe4.size.width  + (pipeDiffSpace1 / 2.0))) {
                 
                 btmPipeHeight4 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe4.size.height = btmPipeHeight4
@@ -435,15 +438,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //MAKE A CIRCULAR BORDER AROUND THE BIRD
         //bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.frame.size.width/2.0)
         bird.physicsBody = SKPhysicsBody(circleOfRadius: 17.0)
-        bird.physicsBody?.linearDamping = 0.55
+        bird.physicsBody?.linearDamping = 8.0
+        //bird.physicsBody?.charge = 9.0
         //bird.physicsBody?.angularDamping = 0.2
-        bird.physicsBody?.restitution = 0.2
+        bird.physicsBody?.restitution = 1.0
         //CREATE A BIT MASK AROUND THE BIRD
         bird.physicsBody?.categoryBitMask = birdCategory
         bird.physicsBody?.contactTestBitMask = pipeCategory
         //                          bird.physicsBody?.velocity = 33
-          bird.physicsBody?.density = 9
-        bird.physicsBody?.mass = 0.1
+        bird.physicsBody?.density = 0.11
+        bird.physicsBody?.mass = 0.07
+        bird.physicsBody?.friction = 0.2
+         //bird.physicsBody?.affectedByGravity = false
         birdIsActive = true
     }
     
@@ -507,7 +513,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.myLabel.text = "\(NSDate().timeIntervalSince1970)"
+            self.myLabel.text = "\(object as? String)"
             self.startTheBirdToFly()
         }
         // labelHello.text = object as? String
@@ -524,7 +530,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 90))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 17), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else
         {

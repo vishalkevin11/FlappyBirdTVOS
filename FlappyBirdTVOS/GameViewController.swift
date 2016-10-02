@@ -44,6 +44,14 @@ class GameViewController: UIViewController {
 //        server.start()
         
         // from existing game
+        
+        self.performSelector(Selector("showGameScene"), withObject: nil, afterDelay: 0.3)
+        
+    }
+    
+    
+    
+    func showGameScene() -> Void {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -62,10 +70,7 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene, transition: SKTransition.fadeWithColor(UIColor.redColor(), duration: 0.3))
         }
-        
     }
-    
-    
     /*
     
     // MARK: Phone to TV connection Delegates
