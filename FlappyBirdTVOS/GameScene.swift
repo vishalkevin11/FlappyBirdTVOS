@@ -438,10 +438,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //MAKE A CIRCULAR BORDER AROUND THE BIRD
         //bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.frame.size.width/2.0)
         bird.physicsBody = SKPhysicsBody(circleOfRadius: 17.0)
-        bird.physicsBody?.linearDamping = 8.0
+        bird.physicsBody?.linearDamping = 4.4
         //bird.physicsBody?.charge = 9.0
         //bird.physicsBody?.angularDamping = 0.2
-        bird.physicsBody?.restitution = 1.0
+        bird.physicsBody?.restitution = 0.02
         //CREATE A BIT MASK AROUND THE BIRD
         bird.physicsBody?.categoryBitMask = birdCategory
         bird.physicsBody?.contactTestBitMask = pipeCategory
@@ -530,7 +530,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 137), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 37), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else
