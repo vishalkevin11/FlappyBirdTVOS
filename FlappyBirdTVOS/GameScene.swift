@@ -135,7 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         birdSprites.append(birdAtlas.textureNamed("player4"))
         
         //SET UP THE BACKGROUND IMAGE AND MAKE IT STATIC
-        myBackground = SKSpriteNode(imageNamed: "background-image-2")
+        myBackground = SKSpriteNode(imageNamed: "background_5.png")
         myBackground.anchorPoint = CGPointZero;
         myBackground.size = CGSizeMake(self.frame.size.width, self.frame.size.height)
         myBackground.position = CGPointMake(0, 0);
