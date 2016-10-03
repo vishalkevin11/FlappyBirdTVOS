@@ -213,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         let b4X : CGFloat =   (b3X + b1Width + pipeDiffSpace1)
         
         
-        let totalViewHeight = self.frame.size.height
+     //   let totalViewHeight = self.frame.size.height
         
         
         
@@ -360,7 +360,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             bottomPipe3.position = CGPointMake(bottomPipe3.position.x - speedValue, self.getYoffsetForBottomPipe(btmPipeHeight3))
             bottomPipe4.position = CGPointMake(bottomPipe4.position.x - speedValue, self.getYoffsetForBottomPipe(btmPipeHeight4))
             
-            let totalViewHeight = self.frame.size.height
+         //   let totalViewHeight = self.frame.size.height
             
             topPipe1.position = CGPointMake(topPipe1.position.x - speedValue, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight1))
             topPipe2.position = CGPointMake(topPipe2.position.x - speedValue, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight2))

@@ -46,11 +46,12 @@
 		9934D9CD1D867EFF00F308F0 /* topPipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9934D9C61D867EFF00F308F0 /* topPipe.png */; };
 		9955A2321D8A6890004B99D8 /* player2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9955A2311D8A6890004B99D8 /* player2.atlas */; };
 		998A2AE81DA2C06100F1865E /* background_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AE71DA2C06100F1865E /* background_5.png */; };
-		998A2AED1DA2C08A00F1865E /* background_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AE91DA2C08A00F1865E /* background_1.png */; };
-		998A2AEE1DA2C08A00F1865E /* background_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AEA1DA2C08A00F1865E /* background_2.png */; };
-		998A2AEF1DA2C08A00F1865E /* background_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AEB1DA2C08A00F1865E /* background_3.png */; };
-		998A2AF01DA2C08A00F1865E /* background_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AEC1DA2C08A00F1865E /* background_4.png */; };
 		998A2AF71DA2CCD800F1865E /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998A2AF61DA2CCD800F1865E /* MenuScene.swift */; };
+		998A2AFA1DA2D31600F1865E /* playNow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AF81DA2D31600F1865E /* playNow1.png */; };
+		998A2AFB1DA2D31600F1865E /* playNow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AF91DA2D31600F1865E /* playNow2.png */; };
+		998A2AFD1DA2D33500F1865E /* bird_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AFC1DA2D33500F1865E /* bird_bg.png */; };
+		998A2B011DA2DF7100F1865E /* flyHighLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2B001DA2DF7100F1865E /* flyHighLogo.png */; };
+		998A2B031DA2EEC400F1865E /* play_again.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2B021DA2EEC400F1865E /* play_again.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,11 +119,12 @@
 		9934D9C61D867EFF00F308F0 /* topPipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topPipe.png; sourceTree = "<group>"; };
 		9955A2311D8A6890004B99D8 /* player2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player2.atlas; sourceTree = "<group>"; };
 		998A2AE71DA2C06100F1865E /* background_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_5.png; sourceTree = "<group>"; };
-		998A2AE91DA2C08A00F1865E /* background_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_1.png; sourceTree = "<group>"; };
-		998A2AEA1DA2C08A00F1865E /* background_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_2.png; sourceTree = "<group>"; };
-		998A2AEB1DA2C08A00F1865E /* background_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_3.png; sourceTree = "<group>"; };
-		998A2AEC1DA2C08A00F1865E /* background_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_4.png; sourceTree = "<group>"; };
 		998A2AF61DA2CCD800F1865E /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		998A2AF81DA2D31600F1865E /* playNow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playNow1.png; sourceTree = "<group>"; };
+		998A2AF91DA2D31600F1865E /* playNow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playNow2.png; sourceTree = "<group>"; };
+		998A2AFC1DA2D33500F1865E /* bird_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_bg.png; sourceTree = "<group>"; };
+		998A2B001DA2DF7100F1865E /* flyHighLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flyHighLogo.png; sourceTree = "<group>"; };
+		998A2B021DA2EEC400F1865E /* play_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_again.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,14 +289,15 @@
 		998A2AE61DA2C03600F1865E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				998A2AE91DA2C08A00F1865E /* background_1.png */,
-				998A2AEA1DA2C08A00F1865E /* background_2.png */,
-				998A2AEB1DA2C08A00F1865E /* background_3.png */,
-				998A2AEC1DA2C08A00F1865E /* background_4.png */,
 				998A2AE71DA2C06100F1865E /* background_5.png */,
 				9934D9C11D867EFF00F308F0 /* bottomPipe.png */,
 				9934D9C21D867EFF00F308F0 /* floor.png */,
 				990EB4761D9EF12D00D75EFA /* play_btn.png */,
+				998A2AF81DA2D31600F1865E /* playNow1.png */,
+				998A2AF91DA2D31600F1865E /* playNow2.png */,
+				998A2AFC1DA2D33500F1865E /* bird_bg.png */,
+				998A2B001DA2DF7100F1865E /* flyHighLogo.png */,
+				998A2B021DA2EEC400F1865E /* play_again.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -358,25 +361,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				998A2B031DA2EEC400F1865E /* play_again.png in Resources */,
 				9920BFDB1D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec in Resources */,
+				998A2AFA1DA2D31600F1865E /* playNow1.png in Resources */,
 				9920BFEB1D9BA5EC00F9A9F6 /* README.txt in Resources */,
 				9934D9C91D867EFF00F308F0 /* floor.png in Resources */,
 				9934D9B21D867E8400F308F0 /* art.scnassets in Resources */,
-				998A2AEE1DA2C08A00F1865E /* background_2.png in Resources */,
+				998A2AFD1DA2D33500F1865E /* bird_bg.png in Resources */,
 				9920BFD61D9BA5EC00F9A9F6 /* AsyncNetwork-Info.plist in Resources */,
 				9955A2321D8A6890004B99D8 /* player2.atlas in Resources */,
 				9934D9B91D867E8400F308F0 /* Assets.xcassets in Resources */,
 				9934D9CD1D867EFF00F308F0 /* topPipe.png in Resources */,
 				9934D9CC1D867EFF00F308F0 /* player.atlas in Resources */,
 				9934D9CA1D867EFF00F308F0 /* GameScene.sks in Resources */,
+				998A2AFB1DA2D31600F1865E /* playNow2.png in Resources */,
 				9934D9C81D867EFF00F308F0 /* bottomPipe.png in Resources */,
+				998A2B011DA2DF7100F1865E /* flyHighLogo.png in Resources */,
 				9920BFDC1D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
 				990EB4781D9EF12D00D75EFA /* play_btn.png in Resources */,
 				9934D9B71D867E8400F308F0 /* Main.storyboard in Resources */,
-				998A2AEF1DA2C08A00F1865E /* background_3.png in Resources */,
 				9920BFE21D9BA5EC00F9A9F6 /* Documentation.html in Resources */,
-				998A2AED1DA2C08A00F1865E /* background_1.png in Resources */,
-				998A2AF01DA2C08A00F1865E /* background_4.png in Resources */,
 				998A2AE81DA2C06100F1865E /* background_5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

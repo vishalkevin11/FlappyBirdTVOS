@@ -6,7 +6,7 @@
 //  Copyright © 2016 TuffyTiffany. All rights reserved.
 //
 
-import UIKit
+import SpriteKit
 
 class MenuScene: SKScene {
 

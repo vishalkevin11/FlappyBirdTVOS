@@ -29,7 +29,7 @@ extension SKNode {
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var labelHello: UILabel!
+    @IBOutlet weak var menuViewBase: UIView!
     
    
 //    let server = AsyncServer()
@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.menuViewBase.alpha = 1.0
 //        server.serviceType = "_ClientServer._tcp"
 //        server.serviceName = "tvOS"
 //        
@@ -52,6 +53,9 @@ class GameViewController: UIViewController {
     
     
     func showGameScene() -> Void {
+        
+       
+        
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -67,8 +71,14 @@ class GameViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene, transition: SKTransition.fadeWithColor(UIColor.redColor(), duration: 0.3))
+            let transition = SKTransition.revealWithDirection(SKTransitionDirection.Down, duration: 1.0)
+//            UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+//                            self.menuViewBase.alpha = 0.0
+//                        }) { (done : Bool) in
+                 //self.menuViewBase.hidden = true
+                skView.presentScene(scene, transition: transition)
+            //}
+           
         }
     }
     /*
@@ -118,25 +128,12 @@ class GameViewController: UIViewController {
     
     @IBAction func playTheGame(sender: AnyObject) {
         
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            skView.allowsTransparency  = false
-            
-            //SHOW THE PHSYICS BORDERS
-            //skView.showsPhysics = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = false
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene, transition: SKTransition.fadeWithColor(UIColor.redColor(), duration: 0.3))
-        }
-        
+        UIView.animateWithDuration(0.34, delay: 0.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            self.menuViewBase.alpha = 0.0
+        }) { (done : Bool) in
+           self.menuViewBase.hidden = true
+           self.showGameScene()
+       }
     }
     
     

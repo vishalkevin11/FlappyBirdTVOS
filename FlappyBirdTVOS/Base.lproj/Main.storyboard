@@ -15,11 +15,106 @@
                     <view key="view" contentMode="scaleToFill" id="8si-d1-aiN" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-nS-Hp2">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="bird_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-Ol-71l">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-u1-TFf">
+                                        <rect key="frame" x="100" y="805" width="456" height="175"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="175" id="ar9-Gt-LXU"/>
+                                            <constraint firstAttribute="width" constant="456" id="jSM-Xb-ZtA"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="playNow2.png"/>
+                                        <connections>
+                                            <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="eiw-0L-CVC"/>
+                                        </connections>
+                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="flyHighLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NvH-r0-Hdw">
+                                        <rect key="frame" x="613" y="35" width="694" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="694" id="AFv-nU-F7T"/>
+                                            <constraint firstAttribute="height" constant="300" id="xdl-bB-I7h"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.8980392157" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="a1K-u1-TFf" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" constant="100" id="B1P-Ti-CJu"/>
+                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" id="M3D-nH-Rkc"/>
+                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="centerX" secondItem="wnc-nS-Hp2" secondAttribute="centerX" id="S3s-rz-LHj"/>
+                                    <constraint firstAttribute="trailing" secondItem="WH5-Ol-71l" secondAttribute="trailing" id="Sp1-Ms-XYg"/>
+                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" constant="35" id="dhY-Fd-IYZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="a1K-u1-TFf" secondAttribute="bottom" constant="100" id="ebk-MN-RUG"/>
+                                    <constraint firstAttribute="bottom" secondItem="WH5-Ol-71l" secondAttribute="bottom" id="eo4-VM-NIk"/>
+                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" id="tNS-vd-CLM"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Wr-iva" userLabel="PlayAgainView">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-Gf-5UT">
+                                        <rect key="frame" x="732" y="805" width="456" height="175"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="175" id="DOQ-RC-rAZ"/>
+                                            <constraint firstAttribute="width" constant="456" id="GqT-vl-xCQ"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="play_again.png"/>
+                                        <connections>
+                                            <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="hMI-CV-irL"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-NG-k4c" userLabel="OpacityView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.8980392157" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5Xg-NG-k4c" secondAttribute="trailing" id="1SN-ct-fIS"/>
+                                    <constraint firstAttribute="bottom" secondItem="lpg-Gf-5UT" secondAttribute="bottom" constant="100" id="AUN-9S-wmz"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Xg-NG-k4c" secondAttribute="bottom" id="DXL-FX-R1Y"/>
+                                    <constraint firstItem="lpg-Gf-5UT" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="MOe-FR-hgw"/>
+                                    <constraint firstItem="lpg-Gf-5UT" firstAttribute="centerX" secondItem="b78-Wr-iva" secondAttribute="centerX" id="UL1-7B-Avk"/>
+                                    <constraint firstItem="5Xg-NG-k4c" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" id="sGv-xp-wq6"/>
+                                    <constraint firstItem="5Xg-NG-k4c" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" id="tlY-6s-9Gc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MOe-FR-hgw"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="b78-Wr-iva" secondAttribute="trailing" id="ASq-1y-bXO"/>
+                            <constraint firstItem="b78-Wr-iva" firstAttribute="leading" secondItem="8si-d1-aiN" secondAttribute="leading" id="GN0-vZ-0Wa"/>
+                            <constraint firstItem="5Yr-cG-Uie" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="bottom" id="Ujd-kl-mYf"/>
+                            <constraint firstItem="wnc-nS-Hp2" firstAttribute="leading" secondItem="8si-d1-aiN" secondAttribute="leading" id="UsM-ef-HCP"/>
+                            <constraint firstItem="5Yr-cG-Uie" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="bottom" id="ame-60-i6f"/>
+                            <constraint firstItem="b78-Wr-iva" firstAttribute="top" secondItem="D5o-sx-Xx0" secondAttribute="bottom" id="gM6-Lp-pwT"/>
+                            <constraint firstItem="wnc-nS-Hp2" firstAttribute="top" secondItem="D5o-sx-Xx0" secondAttribute="bottom" id="p1l-Hv-UJ1"/>
+                            <constraint firstAttribute="trailing" secondItem="wnc-nS-Hp2" secondAttribute="trailing" id="qao-n6-lW8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuViewBase" destination="wnc-nS-Hp2" id="T0h-Xw-WyD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubr-7B-cQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228" y="-436"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bird_bg.png" width="1366" height="768"/>
+        <image name="flyHighLogo.png" width="600" height="300"/>
+        <image name="playNow2.png" width="296" height="117"/>
+        <image name="play_again.png" width="494" height="195"/>
+    </resources>
 </document>
