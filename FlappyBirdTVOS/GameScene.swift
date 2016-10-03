@@ -124,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
-        self.physicsWorld.gravity = CGVectorMake(0, -3.5)
+        self.physicsWorld.gravity = CGVectorMake(0, -6.5)
 
         self.physicsWorld.contactDelegate = self
         
@@ -530,7 +530,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 17), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 137), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else

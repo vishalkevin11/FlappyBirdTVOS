@@ -45,7 +45,7 @@ class GameViewController: UIViewController {
         
         // from existing game
         
-        self.performSelector(Selector("showGameScene"), withObject: nil, afterDelay: 0.3)
+        self.performSelector(#selector(GameViewController.showGameScene), withObject: nil, afterDelay: 0.3)
         
     }
     
