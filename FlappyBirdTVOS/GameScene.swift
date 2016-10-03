@@ -98,13 +98,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func getYoffsetForTopPipeFromBottomPipeHeight(tmpBtmPipeHeight : CGFloat) -> CGFloat {
         
         let heightForTopPipe =  self.frame.size.height  - ((self.myFloor1.frame.size.height / 2.0) + (tmpBtmPipeHeight / 2.0) + characterEscapeSpace)
-        let yPos = ((self.myFloor1.frame.size.height / 2.0) + (tmpBtmPipeHeight)) + characterEscapeSpace + (heightForTopPipe / 2.0)-frameTopOffset
+        let yPos = ((self.myFloor1.frame.size.height / 2.0) + (tmpBtmPipeHeight)) + characterEscapeSpace + (heightForTopPipe / 2.0)-(frameTopOffset / 2.0)
         return yPos
     }
     
     
     func getHeightForTopPipeFromBottomPipeHeight(tmpBtmPipeHeight : CGFloat) -> CGFloat {
-        let height  = self.frame.size.height - frameTopOffset - ((self.myFloor1.frame.size.height / 2.0) + tmpBtmPipeHeight + characterEscapeSpace)
+        let height  = self.frame.size.height - (frameTopOffset / 2.0) - ((self.myFloor1.frame.size.height / 2.0) + tmpBtmPipeHeight + characterEscapeSpace)
         return height
     }
     
@@ -121,10 +121,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         }
         
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y - (frameTopOffset/2.0), self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
-        self.physicsWorld.gravity = CGVectorMake(0, -6.5)
+        self.physicsWorld.gravity = CGVectorMake(0, -4.5)
 
         self.physicsWorld.contactDelegate = self
         
@@ -137,7 +137,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //SET UP THE BACKGROUND IMAGE AND MAKE IT STATIC
         myBackground = SKSpriteNode(imageNamed: "background-image-2")
         myBackground.anchorPoint = CGPointZero;
-        myBackground.size = self.frame.size
+        myBackground.size = CGSizeMake(self.frame.size.width, self.frame.size.height)
         myBackground.position = CGPointMake(0, 0);
         
         //BLEND THE BACKGROUND IMAGE WITH THE SAME BACKGROUND COLOR
@@ -146,8 +146,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //SET UP THE BIRD'S INITIAL POSITION AND IMAGE
         bird = SKSpriteNode(texture:birdSprites[0])
         bird.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        bird.size.width = bird.size.width / 10
-        bird.size.height = bird.size.height / 10
+        bird.size.width = bird.size.width / 10.0
+        bird.size.height = bird.size.height / 10.0
         
         
         //SET UP THE FLOOR AND PIPES INITIAL POSITION AND IMAGE
@@ -274,7 +274,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         topPipe4.physicsBody?.contactTestBitMask = birdCategory
         
         //ADD THE BACKGROUND TO THE SCENE
-      // addChild(self.myBackground)
+       addChild(self.myBackground)
         
         //ADD THE PIPES TO THE SCENE
         addChild(self.bottomPipe1)
@@ -447,7 +447,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bird.physicsBody?.contactTestBitMask = pipeCategory
         //                          bird.physicsBody?.velocity = 33
         bird.physicsBody?.density = 0.11
-        bird.physicsBody?.mass = 0.07
+        bird.physicsBody?.mass = 0.08
         bird.physicsBody?.friction = 0.2
          //bird.physicsBody?.affectedByGravity = false
         birdIsActive = true
