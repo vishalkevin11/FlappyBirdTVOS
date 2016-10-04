@@ -38,12 +38,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         self.menuViewBase.alpha = 1.0
-//        server.serviceType = "_ClientServer._tcp"
-//        server.serviceName = "tvOS"
-//        
-//        server.delegate = self
-//        server.start()
-        
         // from existing game
         
         self.performSelector(#selector(GameViewController.showGameScene), withObject: nil, afterDelay: 0.3)

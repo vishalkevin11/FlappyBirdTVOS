@@ -57,6 +57,21 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Wr-iva" userLabel="PlayAgainView">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-NG-k4c" userLabel="OpacityView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJl-ZD-RdI">
+                                        <rect key="frame" x="100" y="300" width="1720" height="182"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="182" id="5HH-2w-udT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="150"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="9" height="7"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-Gf-5UT">
                                         <rect key="frame" x="732" y="805" width="456" height="175"/>
                                         <constraints>
@@ -69,18 +84,17 @@
                                             <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="hMI-CV-irL"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-NG-k4c" userLabel="OpacityView">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31764705879999999" green="0.8980392157" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5Xg-NG-k4c" secondAttribute="trailing" id="1SN-ct-fIS"/>
                                     <constraint firstAttribute="bottom" secondItem="lpg-Gf-5UT" secondAttribute="bottom" constant="100" id="AUN-9S-wmz"/>
                                     <constraint firstAttribute="bottom" secondItem="5Xg-NG-k4c" secondAttribute="bottom" id="DXL-FX-R1Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZJl-ZD-RdI" secondAttribute="trailing" constant="100" id="JGS-22-sCP"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="MOe-FR-hgw"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="centerX" secondItem="b78-Wr-iva" secondAttribute="centerX" id="UL1-7B-Avk"/>
+                                    <constraint firstItem="ZJl-ZD-RdI" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" constant="300" id="kFZ-Pp-qdh"/>
+                                    <constraint firstItem="ZJl-ZD-RdI" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="kPC-q2-rWF"/>
                                     <constraint firstItem="5Xg-NG-k4c" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" id="sGv-xp-wq6"/>
                                     <constraint firstItem="5Xg-NG-k4c" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" id="tlY-6s-9Gc"/>
                                 </constraints>

@@ -530,7 +530,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 37), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 57), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else
@@ -545,8 +545,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func server(theServer: AsyncServer!, didFailWithError error: NSError!) {
       //  print("didfail")
     }
-    
-    //    func server(theServer: AsyncServer!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!, responseBlock block: AsyncNetworkResponseBlock!) {
-    //        print("didreceivecommand - response block")
-    //    }
+
 }
