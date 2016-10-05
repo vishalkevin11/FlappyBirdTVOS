@@ -10,18 +10,11 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
-     let server = AsyncServer()
+    let server = AsyncServer()
     
     
-    //let pipeDiffSpace1 : CGFloat = 420
     let pipeDiffSpace1 : CGFloat = 420
-    let pipeDiffSpace2 : CGFloat = 300
-    
-    
-    let bottomPipeYPos : CGFloat = 250
     let floorheight : CGFloat = 150
-    
-    
     
     let speedValue : CGFloat = 3.0
     let MAX_PIPE_HEIGHT : CGFloat = 300.0
@@ -57,12 +50,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     //SET AN INITIAL VARIABLE FOR THE RANDOM PIPE SIZE
     
-    var pipeHeight1 = CGFloat(100)
-    var pipeHeight2 = CGFloat(150)
-    var pipeHeight3 = CGFloat(200)
-    var pipeHeight4 = CGFloat(250)
-    
-    
     
     var btmPipeHeight1 = CGFloat(250)
     var btmPipeHeight2 = CGFloat(300)
@@ -76,10 +63,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var topPipeHeight3 = CGFloat(300)
     var topPipeHeight4 = CGFloat(250)
     
-    
-    //var bottomPipeHeight = CGFloat(250)
-    
-    var frameHeightDifference = CGFloat(330)
     var frameTopOffset = CGFloat(77)
     
     //DETERMINE IF THE GAME HAS STARTED OR NOT
@@ -88,6 +71,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     
     var myLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Arial")
+    
+    var guideTextLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var scoreCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var lifeCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var timeCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    
+    
     
     func getYoffsetForBottomPipe(tmpPipeHeight : CGFloat) -> CGFloat {
         let yPos  =  (self.myFloor1.frame.size.height / 2.0) + (tmpPipeHeight / 2.0)
@@ -112,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         //CREATE A BORDER AROUND THE SCREEN
         //  self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y+frameTopOffset, self.frame.size.width, self.frame.size.height-frameHeightDifference))
-     dispatch_async(dispatch_get_main_queue()) { 
+        dispatch_async(dispatch_get_main_queue()) {
             self.server.serviceType = "_ClientServer._tcp"
             self.server.serviceName = "tvOS"
             
@@ -125,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
         self.physicsWorld.gravity = CGVectorMake(0, -4.5)
-
+        
         self.physicsWorld.contactDelegate = self
         
         //SET UP THE BIRD SPRITES FOR ANIMATION
@@ -180,6 +170,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bottomPipe3.name = "bottomPipe3"
         bottomPipe4.name = "bottomPipe4"
         
+        // Place Labels
+        
+        
+        timeCounter.fontSize = 77.0
+        timeCounter.fontColor = UIColor.whiteColor()
+        
+        
         
         myLabel.position = CGPointMake(400,400)
         //myLabel.size.width = 700
@@ -196,7 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         myFloor1.size.height =  floorheight
         myFloor2.size.height =  floorheight
         
-    
+        
         
         myFloor1.anchorPoint = CGPointZero;
         myFloor2.anchorPoint = CGPointZero;
@@ -213,7 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         let b4X : CGFloat =   (b3X + b1Width + pipeDiffSpace1)
         
         
-     //   let totalViewHeight = self.frame.size.height
+        //   let totalViewHeight = self.frame.size.height
         
         
         
@@ -274,7 +271,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         topPipe4.physicsBody?.contactTestBitMask = birdCategory
         
         //ADD THE BACKGROUND TO THE SCENE
-       addChild(self.myBackground)
+        addChild(self.myBackground)
         
         //ADD THE PIPES TO THE SCENE
         addChild(self.bottomPipe1)
@@ -360,7 +357,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             bottomPipe3.position = CGPointMake(bottomPipe3.position.x - speedValue, self.getYoffsetForBottomPipe(btmPipeHeight3))
             bottomPipe4.position = CGPointMake(bottomPipe4.position.x - speedValue, self.getYoffsetForBottomPipe(btmPipeHeight4))
             
-         //   let totalViewHeight = self.frame.size.height
+            //   let totalViewHeight = self.frame.size.height
             
             topPipe1.position = CGPointMake(topPipe1.position.x - speedValue, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight1))
             topPipe2.position = CGPointMake(topPipe2.position.x - speedValue, self.getYoffsetForTopPipeFromBottomPipeHeight(btmPipeHeight2))
@@ -429,7 +426,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         //USER HAS TOUCHED THE SCREEN, BEGIN THE GAME
-       self.startTheBirdToFly()
+        self.startTheBirdToFly()
     }
     
     //CREATE A PHYSICS BODY FOR THE BIRD
@@ -449,13 +446,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bird.physicsBody?.density = 0.11
         bird.physicsBody?.mass = 0.08
         bird.physicsBody?.friction = 0.2
-         //bird.physicsBody?.affectedByGravity = false
+        //bird.physicsBody?.affectedByGravity = false
         birdIsActive = true
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
         //GAMEOVER = TRUE
-//        
+        //
         let nodeName : String? = contact.bodyA.node?.name
         
         if (nodeName != nil) {
@@ -472,30 +469,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     // MARK : Remote Reciever delegate
     
-//    func didReceiveMessage(userInfo: [NSObject : AnyObject]!) {
-//        
-//        
-////        let statusStr = userInfo?["status"] as! String
-////        let playerViewController = PlayerViewController()
-////        
-////        if statusStr == "play" {
-////            
-////            let urlStr = userInfo?["videoURL"] as! String
-////            if urlStr.isEmpty == false {
-////                
-////                playerViewController.playVideo(urlStr as String)
-////                self.presentViewController(playerViewController, animated: true, completion: nil)
-////            }
-////        }
-////        else if statusStr == "stop"{
-////            playerViewController.stopVideo()
-////            self.dismissViewControllerAnimated(true, completion: {
-////                
-////            })
-////        }
-////        
-//        
-//    }
+    //    func didReceiveMessage(userInfo: [NSObject : AnyObject]!) {
+    //
+    //
+    ////        let statusStr = userInfo?["status"] as! String
+    ////        let playerViewController = PlayerViewController()
+    ////
+    ////        if statusStr == "play" {
+    ////
+    ////            let urlStr = userInfo?["videoURL"] as! String
+    ////            if urlStr.isEmpty == false {
+    ////
+    ////                playerViewController.playVideo(urlStr as String)
+    ////                self.presentViewController(playerViewController, animated: true, completion: nil)
+    ////            }
+    ////        }
+    ////        else if statusStr == "stop"{
+    ////            playerViewController.stopVideo()
+    ////            self.dismissViewControllerAnimated(true, completion: {
+    ////
+    ////            })
+    ////        }
+    ////
+    //
+    //    }
     
     func server(theServer: AsyncServer!, didConnect connection: AsyncConnection!) {
         //print("didconnect")
@@ -503,9 +500,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     }
     
     func server(theServer: AsyncServer!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!) {
-       // print("didreceivecommand")
-      //  print(command)
-      //  print(object)
+        // print("didreceivecommand")
+        //  print(command)
+        //  print(object)
         
         //        let dayTimePeriodFormatter = NSDateFormatter()
         //        dayTimePeriodFormatter.dateFormat = "ss"
@@ -517,7 +514,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             self.startTheBirdToFly()
         }
         // labelHello.text = object as? String
-    
+        
         
         
     }
@@ -530,7 +527,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 57), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 67), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else
@@ -539,11 +536,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         }
     }
     func server(theServer: AsyncServer!, didDisconnect connection: AsyncConnection!) {
-       // print("disconnected server")
+        // print("disconnected server")
     }
     
     func server(theServer: AsyncServer!, didFailWithError error: NSError!) {
-      //  print("didfail")
+        //  print("didfail")
     }
-
+    
 }
