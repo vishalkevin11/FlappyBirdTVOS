@@ -73,9 +73,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var myLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Arial")
     
     var guideTextLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var scoreCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var lifeCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var timeCounter : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var scoreCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    
+    var timeCounter : Int = 60
+    var scoreCounter : Int = 0
+    
+    var scorePassingXoffset : CGFloat = 0.0
+    
+    var gameTimer : NSTimer = NSTimer()
+    
     
     
     
@@ -140,6 +148,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bird.size.height = bird.size.height / 10.0
         
         
+        
+        
         //SET UP THE FLOOR AND PIPES INITIAL POSITION AND IMAGE
         myFloor1 = SKSpriteNode(imageNamed: "floor")
         myFloor2 = SKSpriteNode(imageNamed: "floor")
@@ -169,23 +179,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bottomPipe2.name = "bottomPipe2"
         bottomPipe3.name = "bottomPipe3"
         bottomPipe4.name = "bottomPipe4"
-        
-        // Place Labels
-        
-        
-        timeCounter.fontSize = 77.0
-        timeCounter.fontColor = UIColor.whiteColor()
-        
-        
-        
-        myLabel.position = CGPointMake(400,400)
-        //myLabel.size.width = 700
-        myLabel.text = "random accelerometer"
-        myLabel.fontSize = 24.0
-        myLabel.fontColor = UIColor.blackColor()
-        //myLabel.fontName = uibol
-        addChild(myLabel)
-        
         
         myFloor1.size.width = self.frame.size.width + 100.0
         myFloor2.size.width = self.frame.size.width + 100.0
@@ -324,6 +317,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         myFloor1.physicsBody = SKPhysicsBody(edgeLoopFromRect: myFloor1.frame)
         myFloor2.physicsBody = SKPhysicsBody(edgeLoopFromRect: myFloor1.frame)
         
+        
+        // Place Labels
+        
+        
+        timeCounterLabel.fontSize = 77.0
+        self.timeCounterLabel.text = "\(timeCounter)"
+        timeCounterLabel.position = CGPointMake(960,620)
+        timeCounterLabel.fontColor = UIColor.yellowColor()
+        addChild(timeCounterLabel)
+        
+        
+        scoreCounterLabel.fontSize = 47.0
+        self.scoreCounterLabel.text = "Score : \(scoreCounter)"
+        scoreCounterLabel.position = CGPointMake(130,635)
+        scoreCounterLabel.fontColor = UIColor.yellowColor()
+        addChild(scoreCounterLabel)
+        
+        
+        scorePassingXoffset = CGRectGetMidX(self.frame) - bottomPipe1.size.width / 2
+        
+//        myLabel.position = CGPointMake(400,400)
+//        //myLabel.size.width = 700
+//        myLabel.text = "random accelerometer"
+//        myLabel.fontSize = 24.0
+//        myLabel.fontColor = UIColor.blackColor()
+//        //myLabel.fontName = uibol
+//        addChild(myLabel)
+        
+
+    }
+    
+    
+    func getTheScoreOffsetForPipesWithXoffset(xVal : CGFloat) -> Bool {
+        let birdPosXVal = self.bird.position.x
+        let xDifference = birdPosXVal - xVal
+        
+//        double notRounded = varSmoothed_last;
+//        double rounded = round (notRounded * 10.0) / 10.0;
+        
+        let rounded = ceil(xDifference)
+        
+        return ((rounded <= 3.0) && (rounded > 1.0)) ? true : false
     }
     
     override func update(currentTime: CFTimeInterval)
@@ -366,7 +401,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
             
             
+            // Upadte sscore counter
+            
+            if (self.getTheScoreOffsetForPipesWithXoffset(bottomPipe1.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe2.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe3.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe4.position.x)) {
+                 scoreCounter = scoreCounter + 1
+                
+            }
+         
+            
+            
             if (bottomPipe1.position.x < -(bottomPipe1.size.width + (pipeDiffSpace1 / 2.0))){
+                
                 
                 
                 btmPipeHeight1 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
@@ -381,6 +426,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
             if (bottomPipe2.position.x < -(bottomPipe2.size.width + (pipeDiffSpace1 / 2.0))) {
                 
+               
+                
                 btmPipeHeight2 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe2.size.height = btmPipeHeight2
                 bottomPipe2.position = CGPointMake(bottomPipe1.position.x + bottomPipe1.size.width + pipeDiffSpace1, self.getYoffsetForBottomPipe(btmPipeHeight2))
@@ -391,6 +438,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             }
             
             if (bottomPipe3.position.x < -(bottomPipe3.size.width + (pipeDiffSpace1 / 2.0))) {
+                
+              //  scoreCounter = scoreCounter + 1
                 
                 btmPipeHeight3 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe3.size.height = btmPipeHeight3
@@ -403,6 +452,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
             if (bottomPipe4.position.x < -(bottomPipe4.size.width  + (pipeDiffSpace1 / 2.0))) {
                 
+              //  scoreCounter = scoreCounter + 1
+                
                 btmPipeHeight4 = randomBetweenNumbers(MIN_PIPE_HEIGHT, secondNum: MAX_PIPE_HEIGHT)
                 bottomPipe4.size.height = btmPipeHeight4
                 bottomPipe4.position = CGPointMake(bottomPipe3.position.x + bottomPipe3.size.width + pipeDiffSpace1, self.getYoffsetForBottomPipe(btmPipeHeight3))
@@ -413,6 +464,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             }
             
         }
+        
+        self.scoreCounterLabel.text = "Score : \(scoreCounter)"
     }
     
     //RANDOM NUMBER GENERATOR
@@ -457,7 +510,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (nodeName != nil) {
             if ((nodeName != "floor1") && (nodeName != "floor2")){
-                print("BIRD HAS MADE CONTACT\(nodeName)")
+                //print("BIRD HAS MADE CONTACT\(nodeName)")
             }
         }
         
@@ -494,6 +547,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     //
     //    }
     
+    
+    
+    
     func server(theServer: AsyncServer!, didConnect connection: AsyncConnection!) {
         //print("didconnect")
         print(connection)
@@ -523,6 +579,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     func startTheBirdToFly() -> Void {
         //USER HAS TOUCHED THE SCREEN, BEGIN THE GAME
+        
+        if start == false {
+            startTheGame()
+        }
         start = true
         
         if (birdIsActive)
@@ -541,6 +601,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     func server(theServer: AsyncServer!, didFailWithError error: NSError!) {
         //  print("didfail")
+    }
+    
+    
+    // MARK: Start the game
+    
+    func startTheGame() -> Void {
+        self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.runGameTimer), userInfo: nil, repeats: true)
+        self.gameTimer.fire()
+    }
+    
+    
+    // MARK: Run App Timer
+    
+    
+    func runGameTimer() -> Void {
+        self.timeCounter = timeCounter - 1
+        if timeCounter == 1 {
+            //show finished screen
+        }
+        else {
+           self.timeCounterLabel.text = "\(timeCounter)"
+        }
+        
     }
     
 }
