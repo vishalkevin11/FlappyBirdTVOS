@@ -77,13 +77,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     
-    var timeCounter : Int = 60
+    var timeCounter : Int = 3
+    
     var scoreCounter : Int = 0
+    var crashCounter : Int = 0
     
     var scorePassingXoffset : CGFloat = 0.0
     
-    var gameTimer : NSTimer = NSTimer()
+    var gameTimer : NSTimer?
     
+    var isGameStopped = false
     
     
     
@@ -105,6 +108,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         let height  = self.frame.size.height - (frameTopOffset / 2.0) - ((self.myFloor1.frame.size.height / 2.0) + tmpBtmPipeHeight + characterEscapeSpace)
         return height
     }
+    
+    
+    
+    func initializeAllParams() -> Void {
+        
+    }
+    
     
     override func didMoveToView(view: SKView) {
         
@@ -404,11 +414,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             // Upadte sscore counter
             
             if (self.getTheScoreOffsetForPipesWithXoffset(bottomPipe1.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe2.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe3.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe4.position.x)) {
-                 scoreCounter = scoreCounter + 1
-                
+                 self.scoreCounter += 1
             }
          
-            
+            print("ssdddds\(self.scoreCounter)")
             
             if (bottomPipe1.position.x < -(bottomPipe1.size.width + (pipeDiffSpace1 / 2.0))){
                 
@@ -511,6 +520,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         if (nodeName != nil) {
             if ((nodeName != "floor1") && (nodeName != "floor2")){
                 //print("BIRD HAS MADE CONTACT\(nodeName)")
+                if crashCounter == 2 {
+                    // show game over
+                }
+                else {
+                    crashCounter = crashCounter + 1
+                }
             }
         }
         
@@ -580,10 +595,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func startTheBirdToFly() -> Void {
         //USER HAS TOUCHED THE SCREEN, BEGIN THE GAME
         
-        if start == false {
+        if (start == false) && (isGameStopped == false) {
             startTheGame()
         }
+        else {
         start = true
+        }
         
         if (birdIsActive)
         {
@@ -607,8 +624,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     // MARK: Start the game
     
     func startTheGame() -> Void {
-        self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.runGameTimer), userInfo: nil, repeats: true)
-        self.gameTimer.fire()
+        
+        if self.gameTimer == nil {
+            self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.runGameTimer), userInfo: nil, repeats: true)
+            self.gameTimer!.fire()
+        }
+        
     }
     
     
@@ -616,14 +637,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     
     func runGameTimer() -> Void {
-        self.timeCounter = timeCounter - 1
-        if timeCounter == 1 {
+       // self.timeCounter = self.timeCounter - 1
+        self.timeCounter -= 1
+        print("TIMER \(self.timeCounter)")
+        if self.timeCounter == 0 {
             //show finished screen
+            
+//            self.start = false
+//             self.gameTimer.invalidate()
+        //    NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(self.scoreCounter)"])
+            dispatch_async(dispatch_get_main_queue(), { 
+               self.stopTheGame()
+            })
+            
         }
         else {
            self.timeCounterLabel.text = "\(timeCounter)"
         }
-        
     }
     
+    
+    func stopTheGame() -> Void {
+        self.isGameStopped = true
+        self.start = false
+        self.paused = true
+        print("sss\(self.scoreCounter)")
+        if gameTimer != nil {
+            gameTimer!.invalidate()
+            gameTimer = nil
+        }
+        
+        
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+    }
 }

@@ -16,11 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-nS-Hp2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-nS-Hp2">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="bird_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-Ol-71l">
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                        <color key="backgroundColor" red="0.32549019607843138" green="0.60784313725490191" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-u1-TFf">
                                         <rect key="frame" x="100" y="805" width="456" height="175"/>
@@ -42,7 +43,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31764705879999999" green="0.8980392157" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="a1K-u1-TFf" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" constant="100" id="B1P-Ti-CJu"/>
                                     <constraint firstItem="WH5-Ol-71l" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" id="M3D-nH-Rkc"/>
@@ -54,13 +55,9 @@
                                     <constraint firstItem="WH5-Ol-71l" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" id="tNS-vd-CLM"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Wr-iva" userLabel="PlayAgainView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Wr-iva" userLabel="PlayAgainView">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-NG-k4c" userLabel="OpacityView">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.47999999999999998" colorSpace="calibratedRGB"/>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJl-ZD-RdI">
                                         <rect key="frame" x="100" y="300" width="1720" height="182"/>
                                         <constraints>
@@ -72,7 +69,7 @@
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="9" height="7"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-Gf-5UT">
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-Gf-5UT">
                                         <rect key="frame" x="732" y="805" width="456" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="DOQ-RC-rAZ"/>
@@ -85,18 +82,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31764705879999999" green="0.8980392157" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Xg-NG-k4c" secondAttribute="trailing" id="1SN-ct-fIS"/>
                                     <constraint firstAttribute="bottom" secondItem="lpg-Gf-5UT" secondAttribute="bottom" constant="100" id="AUN-9S-wmz"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Xg-NG-k4c" secondAttribute="bottom" id="DXL-FX-R1Y"/>
                                     <constraint firstAttribute="trailing" secondItem="ZJl-ZD-RdI" secondAttribute="trailing" constant="100" id="JGS-22-sCP"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="MOe-FR-hgw"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="centerX" secondItem="b78-Wr-iva" secondAttribute="centerX" id="UL1-7B-Avk"/>
                                     <constraint firstItem="ZJl-ZD-RdI" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" constant="300" id="kFZ-Pp-qdh"/>
                                     <constraint firstItem="ZJl-ZD-RdI" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="kPC-q2-rWF"/>
-                                    <constraint firstItem="5Xg-NG-k4c" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" id="sGv-xp-wq6"/>
-                                    <constraint firstItem="5Xg-NG-k4c" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" id="tlY-6s-9Gc"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -117,6 +110,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnPlay" destination="a1K-u1-TFf" id="fQ1-NJ-Ovp"/>
+                        <outlet property="btnPlayAgain" destination="lpg-Gf-5UT" id="ved-fL-E9g"/>
+                        <outlet property="gameOverViewBase" destination="b78-Wr-iva" id="6kH-Qn-3cT"/>
+                        <outlet property="labelScore" destination="ZJl-ZD-RdI" id="K67-q7-2jg"/>
                         <outlet property="menuViewBase" destination="wnc-nS-Hp2" id="T0h-Xw-WyD"/>
                     </connections>
                 </viewController>
