@@ -65,21 +65,25 @@ class GameViewController: UIViewController {
             let userInfo:Dictionary<String,String!> = notification.userInfo as! Dictionary<String,String!>
             let messageString = userInfo["score"]
             self.labelScore.text = "Score : \(messageString!)"
+            
+            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
+                
+                self.menuViewBase.alpha = 0.0
+                self.gameOverViewBase.alpha = 1.0
+                
+            }) { (done : Bool) in
+                
+                self.menuViewBase.hidden = true
+                self.gameOverViewBase.hidden = false
+                 //self.updateFocusIfNeeded()
+                self.setNeedsFocusUpdate()
+               // self.preferredFocusedView
+                
+            }
         }
         
         
-        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
-            
-            self.menuViewBase.alpha = 0.0
-            self.gameOverViewBase.alpha = 1.0
-            
-        }) { (done : Bool) in
-            
-            self.menuViewBase.hidden = true
-            self.gameOverViewBase.hidden = false
-            self.preferredFocusedView
-            //self.showGameScene()
-        }
+        
     }
     
     

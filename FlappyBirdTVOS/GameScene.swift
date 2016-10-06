@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     let pipeDiffSpace1 : CGFloat = 420
     let floorheight : CGFloat = 150
     
-    let speedValue : CGFloat = 3.0
+    let speedValue : CGFloat = 4.0
     let MAX_PIPE_HEIGHT : CGFloat = 300.0
     let MIN_PIPE_HEIGHT : CGFloat = 200.0
     
@@ -77,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     
-    var timeCounter : Int = 3
+    var timeCounter : Int = 7
     
     var scoreCounter : Int = 0
     var crashCounter : Int = 0
@@ -368,7 +368,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         let rounded = ceil(xDifference)
         
-        return ((rounded <= 3.0) && (rounded > 1.0)) ? true : false
+        return ((rounded <= speedValue) && (rounded > 1.0)) ? true : false
     }
     
     override func update(currentTime: CFTimeInterval)
@@ -596,10 +596,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         //USER HAS TOUCHED THE SCREEN, BEGIN THE GAME
         
         if (start == false) && (isGameStopped == false) {
+            start = true
             startTheGame()
+            
         }
         else {
-        start = true
+        
         }
         
         if (birdIsActive)
