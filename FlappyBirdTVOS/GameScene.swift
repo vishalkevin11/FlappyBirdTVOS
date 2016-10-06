@@ -42,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var bottomPipe4 = SKSpriteNode()
     var topPipe4 = SKSpriteNode()
     
+    
+    var crashImage = SKSpriteNode()
+    
     //CREATE AN OUTLINE OF THE PIPES FOR COLLISION PURPOSES
     let myPipesTexture = SKTexture(imageNamed: "pipe")
     
@@ -77,7 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
     
-    var timeCounter : Int = 7
+    var timeCounter : Int = 60
     
     var scoreCounter : Int = 0
     var crashCounter : Int = 0
@@ -87,6 +90,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     var gameTimer : NSTimer?
     
     var isGameStopped = false
+    
+
     
     
     
@@ -130,6 +135,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y - (frameTopOffset/2.0), self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
+        
+        
+       
+        
         
         //REQUIRED TO DETECT SPECIFIC COLLISIONS
         self.physicsWorld.gravity = CGVectorMake(0, -4.5)
@@ -347,6 +356,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         scorePassingXoffset = CGRectGetMidX(self.frame) - bottomPipe1.size.width / 2
         
+        
+        //Boom Image
+        crashImage = SKSpriteNode(imageNamed: "boom")
+        crashImage.position = CGPoint(x:CGRectGetMidX(self.frame), y:170.0);
+        crashImage.size.width = 120.0
+        crashImage.size.height = 120.0
+        crashImage.hidden = true
+        self.addChild(crashImage)
+        
+        
 //        myLabel.position = CGPointMake(400,400)
 //        //myLabel.size.width = 700
 //        myLabel.text = "random accelerometer"
@@ -520,12 +539,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         if (nodeName != nil) {
             if ((nodeName != "floor1") && (nodeName != "floor2")){
                 //print("BIRD HAS MADE CONTACT\(nodeName)")
-                if crashCounter == 2 {
-                    // show game over
-                }
-                else {
-                    crashCounter = crashCounter + 1
-                }
+                
+                crashImage.position = contact.contactPoint
+                crashImage.hidden = false
+                
+                self.performSelector(#selector(GameScene.removeCrashImage), withObject: self, afterDelay: 0.2)
+                
             }
         }
         
@@ -620,6 +639,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     func server(theServer: AsyncServer!, didFailWithError error: NSError!) {
         //  print("didfail")
+    }
+   
+    // MARK: Remove crasg Image
+    
+    func removeCrashImage() -> Void {
+        self.crashImage.hidden = true
+        if crashCounter == 2 {
+            // show game over
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stopTheGame()
+            })
+//            NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+        }
+        else {
+            crashCounter = crashCounter + 1
+        }
     }
     
     
