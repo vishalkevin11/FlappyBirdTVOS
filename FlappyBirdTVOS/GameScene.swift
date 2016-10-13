@@ -91,6 +91,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     var isGameStopped = false
     
+    var isCollided = false
+    
 
     
     
@@ -358,7 +360,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         
         //Boom Image
-        crashImage = SKSpriteNode(imageNamed: "boom")
+        crashImage = SKSpriteNode(imageNamed: "blast")
         crashImage.position = CGPoint(x:CGRectGetMidX(self.frame), y:170.0);
         crashImage.size.width = 120.0
         crashImage.size.height = 120.0
@@ -436,7 +438,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                  self.scoreCounter += 1
             }
          
-            print("ssdddds\(self.scoreCounter)")
+           // print("ssdddds\(self.scoreCounter)")
             
             if (bottomPipe1.position.x < -(bottomPipe1.size.width + (pipeDiffSpace1 / 2.0))){
                 
@@ -538,12 +540,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (nodeName != nil) {
             if ((nodeName != "floor1") && (nodeName != "floor2")){
-                //print("BIRD HAS MADE CONTACT\(nodeName)")
+                print("BIRD HAS MADE CONTACT\(contact.collisionImpulse)")
                 
-                crashImage.position = contact.contactPoint
-                crashImage.hidden = false
                 
-                self.performSelector(#selector(GameScene.removeCrashImage), withObject: self, afterDelay: 0.2)
+                if (isCollided == false) {
+                    
+                    isCollided = true
+                    
+                    crashImage.position = contact.contactPoint
+                    crashImage.hidden = false
+                    if crashCounter == 2 {
+                        // show game over
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.stopTheGame()
+                        })
+                        //            NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+                    }
+                    else {
+                        crashCounter = crashCounter + 1
+                    }
+                    
+                    self.performSelector(#selector(GameScene.removeCrashImage), withObject: self, afterDelay: 0.5)
+                }
                 
             }
         }
@@ -644,17 +662,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     // MARK: Remove crasg Image
     
     func removeCrashImage() -> Void {
+        
+        isCollided = false
+        
         self.crashImage.hidden = true
-        if crashCounter == 2 {
-            // show game over
-            dispatch_async(dispatch_get_main_queue(), {
-                self.stopTheGame()
-            })
-//            NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
-        }
-        else {
-            crashCounter = crashCounter + 1
-        }
+//        if crashCounter == 2 {
+//            // show game over
+//            dispatch_async(dispatch_get_main_queue(), {
+//                self.stopTheGame()
+//            })
+////            NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+//        }
+//        else {
+//            crashCounter = crashCounter + 1
+//        }
     }
     
     
@@ -676,7 +697,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func runGameTimer() -> Void {
        // self.timeCounter = self.timeCounter - 1
         self.timeCounter -= 1
-        print("TIMER \(self.timeCounter)")
+     //   print("TIMER \(self.timeCounter)")
         if self.timeCounter == 0 {
             //show finished screen
             
@@ -698,7 +719,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         self.isGameStopped = true
         self.start = false
         self.paused = true
-        print("sss\(self.scoreCounter)")
+        self.crashCounter = 0
+      //  print("sss\(self.scoreCounter)")
         if gameTimer != nil {
             gameTimer!.invalidate()
             gameTimer = nil
