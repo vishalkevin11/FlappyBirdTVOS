@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
@@ -93,8 +94,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     var isCollided = false
     
+  //  var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coin", ofType: "wav")!)
+    var audioPlayer = AVAudioPlayer()
+    var crashAudioPlayer = AVAudioPlayer()
 
-    
+  //  var audioPlayer : AVAudioPlayer?
     
     
     func getYoffsetForBottomPipe(tmpPipeHeight : CGFloat) -> CGFloat {
@@ -123,6 +127,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     }
     
     
+    // MARK: Play Audio
+    
+    func prepareTheAudio() {
+        do {
+            
+            try audioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("jump_10", ofType: "wav")!), fileTypeHint:nil)
+        } catch {
+            //Handle the error
+        }
+        do {
+            
+            try crashAudioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("punch", ofType: "wav")!), fileTypeHint:nil)
+        } catch {
+            //Handle the error
+        }
+    }
+    
+    
     override func didMoveToView(view: SKView) {
         
         //CREATE A BORDER AROUND THE SCREEN
@@ -136,6 +158,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         }
         
         
+      //audio
+        
+        self.prepareTheAudio()
+    
+    
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(self.frame.origin.x, self.frame.origin.y - (frameTopOffset/2.0), self.frame.size.width, self.frame.size.height - ( frameTopOffset)))
         
         
@@ -536,6 +563,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         //GAMEOVER = TRUE
         //
+        
+        
         let nodeName : String? = contact.bodyA.node?.name
         
         if (nodeName != nil) {
@@ -546,6 +575,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                 if (isCollided == false) {
                     
                     isCollided = true
+                    crashAudioPlayer.play()
+                    
                     
                     crashImage.position = contact.contactPoint
                     crashImage.hidden = false
@@ -643,6 +674,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         if (birdIsActive)
         {
+            
+            audioPlayer.play()
             self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 67), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
@@ -730,4 +763,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
     }
+    
+    
+    // MARK: Play sound  
+    
+   
+    
+    // Initial setup
+
+    
+    // Trigger the sound effect when the player grabs the coin
+//    func didBeginContact(contact: SKPhysicsContact!) {
+//        
+//    }
 }
