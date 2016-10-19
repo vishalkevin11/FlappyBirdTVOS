@@ -57,6 +57,9 @@
 		998A2AFD1DA2D33500F1865E /* bird_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2AFC1DA2D33500F1865E /* bird_bg.png */; };
 		998A2B011DA2DF7100F1865E /* flyHighLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2B001DA2DF7100F1865E /* flyHighLogo.png */; };
 		998A2B031DA2EEC400F1865E /* play_again.png in Resources */ = {isa = PBXBuildFile; fileRef = 998A2B021DA2EEC400F1865E /* play_again.png */; };
+		99F9150F1DB7816800DA5B8F /* BIpdOc-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99F9150E1DB7816800DA5B8F /* BIpdOc-1.jpg */; };
+		99F915111DB7840500DA5B8F /* birdybird.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F915101DB7840500DA5B8F /* birdybird.png */; };
+		99F915131DB786DC00DA5B8F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F915121DB786DC00DA5B8F /* menu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +138,9 @@
 		998A2AFC1DA2D33500F1865E /* bird_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_bg.png; sourceTree = "<group>"; };
 		998A2B001DA2DF7100F1865E /* flyHighLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flyHighLogo.png; sourceTree = "<group>"; };
 		998A2B021DA2EEC400F1865E /* play_again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_again.png; sourceTree = "<group>"; };
+		99F9150E1DB7816800DA5B8F /* BIpdOc-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "BIpdOc-1.jpg"; sourceTree = "<group>"; };
+		99F915101DB7840500DA5B8F /* birdybird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdybird.png; sourceTree = "<group>"; };
+		99F915121DB786DC00DA5B8F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +328,9 @@
 				998A2B021DA2EEC400F1865E /* play_again.png */,
 				991E738D1DA62F55005F0179 /* boom.png */,
 				99327C2A1DAFB7B100409967 /* blast.png */,
+				99F915121DB786DC00DA5B8F /* menu.png */,
+				99F915101DB7840500DA5B8F /* birdybird.png */,
+				99F9150E1DB7816800DA5B8F /* BIpdOc-1.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -385,12 +394,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F9150F1DB7816800DA5B8F /* BIpdOc-1.jpg in Resources */,
 				991E738E1DA62F55005F0179 /* boom.png in Resources */,
 				99327C2B1DAFB7B100409967 /* blast.png in Resources */,
 				998A2B031DA2EEC400F1865E /* play_again.png in Resources */,
+				99F915131DB786DC00DA5B8F /* menu.png in Resources */,
 				9920BFDB1D9BA5EC00F9A9F6 /* CocoaAsyncSocket.podspec in Resources */,
 				998A2AFA1DA2D31600F1865E /* playNow1.png in Resources */,
 				9920BFEB1D9BA5EC00F9A9F6 /* README.txt in Resources */,
+				99F915111DB7840500DA5B8F /* birdybird.png in Resources */,
 				9934D9C91D867EFF00F308F0 /* floor.png in Resources */,
 				9934D9B21D867E8400F308F0 /* art.scnassets in Resources */,
 				998A2AFD1DA2D33500F1865E /* bird_bg.png in Resources */,

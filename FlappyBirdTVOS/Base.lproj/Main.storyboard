@@ -16,59 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-nS-Hp2">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="bird_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-Ol-71l">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                        <color key="backgroundColor" red="0.32549019607843138" green="0.60784313725490191" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-u1-TFf">
-                                        <rect key="frame" x="100" y="805" width="456" height="175"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="175" id="ar9-Gt-LXU"/>
-                                            <constraint firstAttribute="width" constant="456" id="jSM-Xb-ZtA"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" backgroundImage="playNow2.png"/>
-                                        <connections>
-                                            <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="eiw-0L-CVC"/>
-                                        </connections>
-                                    </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="flyHighLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NvH-r0-Hdw">
-                                        <rect key="frame" x="613" y="35" width="694" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="694" id="AFv-nU-F7T"/>
-                                            <constraint firstAttribute="height" constant="300" id="xdl-bB-I7h"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="a1K-u1-TFf" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" constant="100" id="B1P-Ti-CJu"/>
-                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" id="M3D-nH-Rkc"/>
-                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="centerX" secondItem="wnc-nS-Hp2" secondAttribute="centerX" id="S3s-rz-LHj"/>
-                                    <constraint firstAttribute="trailing" secondItem="WH5-Ol-71l" secondAttribute="trailing" id="Sp1-Ms-XYg"/>
-                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" constant="35" id="dhY-Fd-IYZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="a1K-u1-TFf" secondAttribute="bottom" constant="100" id="ebk-MN-RUG"/>
-                                    <constraint firstAttribute="bottom" secondItem="WH5-Ol-71l" secondAttribute="bottom" id="eo4-VM-NIk"/>
-                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" id="tNS-vd-CLM"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Wr-iva" userLabel="PlayAgainView">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJl-ZD-RdI">
-                                        <rect key="frame" x="100" y="300" width="1720" height="182"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="BIpdOc-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RIl-mD-yig">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" image="bottomPipe.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zry-bZ-Qh4">
+                                        <rect key="frame" x="279" y="647" width="129" height="433"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="182" id="5HH-2w-udT"/>
+                                            <constraint firstAttribute="height" constant="433" id="OMC-2c-hmL"/>
+                                            <constraint firstAttribute="width" constant="129" id="gC7-I5-cfh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="150"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="9" height="7"/>
-                                    </label>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-Gf-5UT">
                                         <rect key="frame" x="732" y="805" width="456" height="175"/>
                                         <constraints>
@@ -81,19 +41,108 @@
                                             <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="hMI-CV-irL"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJl-ZD-RdI">
+                                        <rect key="frame" x="100" y="395" width="1720" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="5HH-2w-udT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="167"/>
+                                        <color key="textColor" red="0.19607843137254902" green="0.15294117647058825" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="9" height="7"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="birdybird.png" translatesAutoresizingMaskIntoConstraints="NO" id="pvn-Kg-Pbh">
+                                        <rect key="frame" x="1427" y="102" width="493" height="422"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="493" id="RtN-pU-vuz"/>
+                                            <constraint firstAttribute="height" constant="422" id="eTQ-PO-3cm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skh-kq-2xr">
+                                        <rect key="frame" x="763" y="669" width="395" height="355"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="355" id="jbm-jR-YSA"/>
+                                            <constraint firstAttribute="width" constant="395" id="sgq-bh-FSi"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="menu.png"/>
+                                        <connections>
+                                            <action selector="goToMenu:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="Llm-de-ECO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="skh-kq-2xr" firstAttribute="centerX" secondItem="b78-Wr-iva" secondAttribute="centerX" id="6AH-iX-siX"/>
+                                    <constraint firstItem="RIl-mD-yig" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" id="7xG-U1-Q5g"/>
                                     <constraint firstAttribute="bottom" secondItem="lpg-Gf-5UT" secondAttribute="bottom" constant="100" id="AUN-9S-wmz"/>
                                     <constraint firstAttribute="trailing" secondItem="ZJl-ZD-RdI" secondAttribute="trailing" constant="100" id="JGS-22-sCP"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="MOe-FR-hgw"/>
                                     <constraint firstItem="lpg-Gf-5UT" firstAttribute="centerX" secondItem="b78-Wr-iva" secondAttribute="centerX" id="UL1-7B-Avk"/>
+                                    <constraint firstItem="RIl-mD-yig" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" id="UnI-T2-s5c"/>
+                                    <constraint firstAttribute="bottom" secondItem="RIl-mD-yig" secondAttribute="bottom" id="iZe-22-hAz"/>
+                                    <constraint firstItem="Zry-bZ-Qh4" firstAttribute="top" secondItem="ZJl-ZD-RdI" secondAttribute="bottom" constant="2" id="jif-8f-ixP"/>
                                     <constraint firstItem="ZJl-ZD-RdI" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" constant="300" id="kFZ-Pp-qdh"/>
                                     <constraint firstItem="ZJl-ZD-RdI" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="100" id="kPC-q2-rWF"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zry-bZ-Qh4" secondAttribute="bottom" id="kln-fE-tZS"/>
+                                    <constraint firstItem="pvn-Kg-Pbh" firstAttribute="top" secondItem="b78-Wr-iva" secondAttribute="top" constant="102" id="q3F-DO-2ob"/>
+                                    <constraint firstAttribute="bottom" secondItem="skh-kq-2xr" secondAttribute="bottom" constant="56" id="q64-fP-ach"/>
+                                    <constraint firstAttribute="trailing" secondItem="RIl-mD-yig" secondAttribute="trailing" id="t7p-PT-7hU"/>
+                                    <constraint firstItem="Zry-bZ-Qh4" firstAttribute="leading" secondItem="b78-Wr-iva" secondAttribute="leading" constant="279" id="wNA-jk-SMI"/>
+                                    <constraint firstAttribute="trailing" secondItem="pvn-Kg-Pbh" secondAttribute="trailing" id="ymc-s0-cIB"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="kFZ-Pp-qdh"/>
                                         <exclude reference="MOe-FR-hgw"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-nS-Hp2">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="bird_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="WH5-Ol-71l">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                        <color key="backgroundColor" red="0.32549019607843138" green="0.60784313725490191" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="flyHighLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NvH-r0-Hdw">
+                                        <rect key="frame" x="613" y="35" width="694" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="694" id="AFv-nU-F7T"/>
+                                            <constraint firstAttribute="height" constant="300" id="xdl-bB-I7h"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-u1-TFf">
+                                        <rect key="frame" x="1364" y="452" width="456" height="175"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="175" id="ar9-Gt-LXU"/>
+                                            <constraint firstAttribute="width" constant="456" id="jSM-Xb-ZtA"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="playNow2.png"/>
+                                        <connections>
+                                            <action selector="playTheGame:" destination="ega-VZ-b48" eventType="primaryActionTriggered" id="eiw-0L-CVC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.60784313729999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="a1K-u1-TFf" secondAttribute="trailing" constant="100" id="4Yh-pU-Em6"/>
+                                    <constraint firstItem="a1K-u1-TFf" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" constant="100" id="B1P-Ti-CJu"/>
+                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" id="M3D-nH-Rkc"/>
+                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="centerX" secondItem="wnc-nS-Hp2" secondAttribute="centerX" id="S3s-rz-LHj"/>
+                                    <constraint firstAttribute="trailing" secondItem="WH5-Ol-71l" secondAttribute="trailing" id="Sp1-Ms-XYg"/>
+                                    <constraint firstItem="a1K-u1-TFf" firstAttribute="centerY" secondItem="wnc-nS-Hp2" secondAttribute="centerY" id="Xov-Ek-ei2"/>
+                                    <constraint firstItem="NvH-r0-Hdw" firstAttribute="top" secondItem="wnc-nS-Hp2" secondAttribute="top" constant="35" id="dhY-Fd-IYZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="a1K-u1-TFf" secondAttribute="bottom" constant="100" id="ebk-MN-RUG"/>
+                                    <constraint firstAttribute="bottom" secondItem="WH5-Ol-71l" secondAttribute="bottom" id="eo4-VM-NIk"/>
+                                    <constraint firstItem="WH5-Ol-71l" firstAttribute="leading" secondItem="wnc-nS-Hp2" secondAttribute="leading" id="tNS-vd-CLM"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="B1P-Ti-CJu"/>
+                                        <exclude reference="ebk-MN-RUG"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -119,12 +168,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubr-7B-cQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-436"/>
+            <point key="canvasLocation" x="-152" y="-972"/>
         </scene>
     </scenes>
     <resources>
+        <image name="BIpdOc-1.jpg" width="3264" height="2172"/>
         <image name="bird_bg.png" width="1366" height="768"/>
+        <image name="birdybird.png" width="717" height="610"/>
+        <image name="bottomPipe.png" width="129" height="987"/>
         <image name="flyHighLogo.png" width="600" height="300"/>
+        <image name="menu.png" width="512" height="512"/>
         <image name="playNow2.png" width="296" height="117"/>
         <image name="play_again.png" width="494" height="195"/>
     </resources>

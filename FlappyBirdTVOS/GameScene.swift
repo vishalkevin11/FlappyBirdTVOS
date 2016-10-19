@@ -76,10 +76,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     
     var myLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Arial")
     
-    var guideTextLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var scoreCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
-    var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Copperplate")
+    var guideTextLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Savoye LET")
+    var scoreCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Savoye LET")
+    var lifeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Savoye LET")
+    var timeCounterLabel : SKLabelNode = SKLabelNode.init(fontNamed: "Savoye LET")
     
     var timeCounter : Int = 60
     
@@ -371,15 +371,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         
         timeCounterLabel.fontSize = 77.0
         self.timeCounterLabel.text = "\(timeCounter)"
-        timeCounterLabel.position = CGPointMake(960,620)
-        timeCounterLabel.fontColor = UIColor.yellowColor()
+        timeCounterLabel.position = CGPointMake(980,625)
+        timeCounterLabel.fontColor = UIColor.init(red: (22.0/255.0), green: (22.0/255.0), blue: (22.0/255.0), alpha: 1.0)
         addChild(timeCounterLabel)
         
         
-        scoreCounterLabel.fontSize = 47.0
+        scoreCounterLabel.fontSize = 50.0
         self.scoreCounterLabel.text = "Score : \(scoreCounter)"
-        scoreCounterLabel.position = CGPointMake(130,635)
-        scoreCounterLabel.fontColor = UIColor.yellowColor()
+        scoreCounterLabel.position = CGPointMake(70,630)
+        scoreCounterLabel.fontColor = UIColor.init(red: (22.0/255.0), green: (22.0/255.0), blue: (22.0/255.0), alpha: 1.0)
         addChild(scoreCounterLabel)
         
         
