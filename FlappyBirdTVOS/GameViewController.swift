@@ -59,6 +59,13 @@ class GameViewController: UIViewController {
     
     func registerNotification() -> Void {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(showGameOverScene(_:)), name: "showGameOverPopUp", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.playGameagain), name: "PlayAgian", object: nil)
+    }
+    
+    func playGameagain() -> Void {
+        dispatch_async(dispatch_get_main_queue()) {
+        self.playThegameAutomaticalley()
+        }
     }
     
     func showGameOverScene(notification : NSNotification) -> Void {
@@ -78,7 +85,7 @@ class GameViewController: UIViewController {
                 self.menuViewBase.hidden = true
                 self.gameOverViewBase.hidden = false
                  //self.updateFocusIfNeeded()
-                self.setNeedsFocusUpdate()
+             //   self.setNeedsFocusUpdate()
                // self.preferredFocusedView
                 
             }
@@ -196,6 +203,9 @@ override var preferredFocusedView: UIView?    {
         //  self.menuViewBase.alpha = 0.0
         self.playThegameAutomaticalley()
     }
+    
+    
+    
     
     
     @IBAction func goToMenu(sender: AnyObject) {

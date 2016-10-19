@@ -645,17 +645,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func server(theServer: AsyncServer!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!) {
         // print("didreceivecommand")
         //  print(command)
-        //  print(object)
+     
+        
+       let recievedSignalStr = object as! String
+        
+        if (recievedSignalStr == "jump") {
+            dispatch_async(dispatch_get_main_queue()) {
+               // self.myLabel.text = "\(object as? String)"
+                self.startTheBirdToFly()
+            }
+        }
+        else if ( recievedSignalStr == "playagain" ){
+         
+            
+            dispatch_async(dispatch_get_main_queue()) {
+               // self.myLabel.text = "\(object as? String)"
+                self.playAgian()
+            }
+        }
+        
         
         //        let dayTimePeriodFormatter = NSDateFormatter()
         //        dayTimePeriodFormatter.dateFormat = "ss"
         //
         //        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
         
-        dispatch_async(dispatch_get_main_queue()) {
-            self.myLabel.text = "\(object as? String)"
-            self.startTheBirdToFly()
-        }
+        
         // labelHello.text = object as? String
         
         
@@ -762,10 +777,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             gameTimer!.invalidate()
             gameTimer = nil
         }
-        
-        
-        
+
         NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+    }
+    
+    
+    func playAgian() -> Void {
+        
+        if ((self.isGameStopped == true) && (self.start == false) && (self.paused == true)) {
+            NSNotificationCenter.defaultCenter().postNotificationName("PlayAgian", object: nil, userInfo: nil)
+        }
     }
     
     
