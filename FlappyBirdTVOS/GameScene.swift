@@ -369,16 +369,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         // Place Labels
         
         
-        timeCounterLabel.fontSize = 77.0
-        self.timeCounterLabel.text = "\(timeCounter)"
-        timeCounterLabel.position = CGPointMake(980,625)
+        timeCounterLabel.fontSize = 55.0
+        self.timeCounterLabel.text = "Time:\(timeCounter)"
+        timeCounterLabel.position = CGPointMake(940,624)
         timeCounterLabel.fontColor = UIColor.init(red: (22.0/255.0), green: (22.0/255.0), blue: (22.0/255.0), alpha: 1.0)
         addChild(timeCounterLabel)
         
         
-        scoreCounterLabel.fontSize = 50.0
-        self.scoreCounterLabel.text = "Score : \(scoreCounter)"
-        scoreCounterLabel.position = CGPointMake(70,630)
+        scoreCounterLabel.fontSize = 55.0
+        self.scoreCounterLabel.text = "Score:\(scoreCounter)"
+        scoreCounterLabel.position = CGPointMake(70,624)
         scoreCounterLabel.fontColor = UIColor.init(red: (22.0/255.0), green: (22.0/255.0), blue: (22.0/255.0), alpha: 1.0)
         addChild(scoreCounterLabel)
         
@@ -426,22 +426,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         bird.position.x = self.frame.width / 2
         bird.physicsBody?.allowsRotation = false
         
-        //POSITION THE FLOOR
-        myFloor1.position = CGPointMake(myFloor1.position.x-speedValue, myFloor1.position.y);
-        myFloor2.position = CGPointMake(myFloor2.position.x-speedValue, myFloor2.position.y);
-        
-        //REPEAT THE FLOOR IN A CONTINIOUS LOOP
-        if (myFloor1.position.x < -(self.frame.size.width + 200) ){
-            myFloor1.position = CGPointMake(myFloor2.position.x + myFloor2.size.width, myFloor1.position.y);
-            //  print("1111 \(myFloor1.frame.size.width) ")
-        }
-        if (myFloor2.position.x < -(self.frame.size.width + 200)) {
-            myFloor2.position = CGPointMake(myFloor1.position.x + myFloor1.size.width, myFloor2.position.y);
-            // print("222 \(myFloor2.frame.size.width) ")
-        }
+       
         
         //IF THE GAME HAS STARTED, BEGIN SHOWING THE PIPES
         if (start) {
+            
+            
+            
+            //POSITION THE FLOOR
+            myFloor1.position = CGPointMake(myFloor1.position.x-speedValue, myFloor1.position.y);
+            myFloor2.position = CGPointMake(myFloor2.position.x-speedValue, myFloor2.position.y);
+            
+            //REPEAT THE FLOOR IN A CONTINIOUS LOOP
+            if (myFloor1.position.x < -(self.frame.size.width + 200) ){
+                myFloor1.position = CGPointMake(myFloor2.position.x + myFloor2.size.width, myFloor1.position.y);
+                //  print("1111 \(myFloor1.frame.size.width) ")
+            }
+            if (myFloor2.position.x < -(self.frame.size.width + 200)) {
+                myFloor2.position = CGPointMake(myFloor1.position.x + myFloor1.size.width, myFloor2.position.y);
+                // print("222 \(myFloor2.frame.size.width) ")
+            }
             
             
             
@@ -522,7 +526,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
         }
         
-        self.scoreCounterLabel.text = "Score : \(scoreCounter)"
+        self.scoreCounterLabel.text = "Score:\(scoreCounter)"
     }
     
     //RANDOM NUMBER GENERATOR
@@ -743,7 +747,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
         }
         else {
-           self.timeCounterLabel.text = "\(timeCounter)"
+           self.timeCounterLabel.text = "Time:\(timeCounter)"
         }
     }
     

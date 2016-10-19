@@ -49,7 +49,9 @@ class GameViewController: UIViewController {
         
         
         self.performSelector(#selector(GameViewController.registerNotification), withObject: nil, afterDelay: 0.1)
-        self.performSelector(#selector(GameViewController.showGameScene), withObject: nil, afterDelay: 0.3)
+       // self.performSelector(#selector(GameViewController.showGameScene), withObject: nil, afterDelay: 0.3)
+        
+        self.performSelector(#selector(GameViewController.playThegameAutomaticalley), withObject: nil, afterDelay: 2.0)
         
     }
     
@@ -174,9 +176,7 @@ override var preferredFocusedView: UIView?    {
     }
     
     
-    @IBAction func playTheGame(sender: AnyObject) {
-        //  self.showGameScene()
-        //  self.menuViewBase.alpha = 0.0
+    func playThegameAutomaticalley() -> Void {
         self.showGameScene()
         UIView.animateWithDuration(2.0, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
             
@@ -191,19 +191,26 @@ override var preferredFocusedView: UIView?    {
     }
     
     
+    @IBAction func playTheGame(sender: AnyObject) {
+        //  self.showGameScene()
+        //  self.menuViewBase.alpha = 0.0
+        self.playThegameAutomaticalley()
+    }
+    
+    
     @IBAction func goToMenu(sender: AnyObject) {
         //  self.showGameScene()
         //  self.menuViewBase.alpha = 0.0
         UIView.animateWithDuration(2.0, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
             
             self.menuViewBase.alpha = 1.0
-            self.gameOverViewBase.alpha = 0.0
-            self.menuViewBase.hidden = false
-            self.gameOverViewBase.hidden = true
+            //self.gameOverViewBase.alpha = 0.0
+//            self.menuViewBase.hidden = false
+//            self.gameOverViewBase.hidden = true
             
         }) { (done : Bool) in
             self.menuViewBase.hidden = false
-            self.gameOverViewBase.hidden = true
+            self.gameOverViewBase.hidden = false
         }
     }
     
