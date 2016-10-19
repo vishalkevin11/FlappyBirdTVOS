@@ -97,6 +97,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
   //  var coinSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coin", ofType: "wav")!)
     var audioPlayer = AVAudioPlayer()
     var crashAudioPlayer = AVAudioPlayer()
+    var mariobgAudioPlayer = AVAudioPlayer()
+    var gameoverAudioPlayer = AVAudioPlayer()
 
   //  var audioPlayer : AVAudioPlayer?
     
@@ -132,13 +134,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
     func prepareTheAudio() {
         do {
             
-            try audioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("jump_10", ofType: "wav")!), fileTypeHint:nil)
+            try audioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("jump_small", ofType: "wav")!), fileTypeHint:nil)
         } catch {
             //Handle the error
         }
         do {
             
-            try crashAudioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("punch", ofType: "wav")!), fileTypeHint:nil)
+            try crashAudioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("bump_small", ofType: "wav")!), fileTypeHint:nil)
+        } catch {
+            //Handle the error
+        }
+        do {
+            
+            try gameoverAudioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("gameover", ofType: "wav")!), fileTypeHint:nil)
+        } catch {
+            //Handle the error
+        }
+        do {
+            
+            try mariobgAudioPlayer = AVAudioPlayer(contentsOfURL: NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("mario_bg", ofType: "wav")!), fileTypeHint:nil)
         } catch {
             //Handle the error
         }
@@ -465,7 +479,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
             
             // Upadte sscore counter
             
-            if (self.getTheScoreOffsetForPipesWithXoffset(bottomPipe1.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe2.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe3.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe4.position.x)) {
+            if (self.getTheScoreOffsetForPipesWithXoffset(bottomPipe1.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe2.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe3.position.x) || self.getTheScoreOffsetForPipesWithXoffset(bottomPipe4.position.x) || self.getTheScoreOffsetForPipesWithXoffset(topPipe1.position.x) || self.getTheScoreOffsetForPipesWithXoffset(topPipe2.position.x) || self.getTheScoreOffsetForPipesWithXoffset(topPipe3.position.x) || self.getTheScoreOffsetForPipesWithXoffset(topPipe4.position.x)) {
                  self.scoreCounter += 1
             }
          
@@ -587,6 +601,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
                     if crashCounter == 2 {
                         // show game over
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.gameoverAudioPlayer.play()
                             self.stopTheGame()
                         })
                         //            NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
@@ -695,7 +710,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         {
             
             audioPlayer.play()
-            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 67), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
+            self.bird.physicsBody!.applyImpulse(CGVectorMake(0, 80), atPoint: CGPointZero)      //applyImpulse(CGVectorMake(0, 2), atPoint: CGPoint(x: self.frame.width/2, y: 0))
             //self.bird.physicsBody!.applyForce(CGVectorMake(0, 12))
         }
         else
@@ -738,6 +753,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         if self.gameTimer == nil {
             self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.runGameTimer), userInfo: nil, repeats: true)
             self.gameTimer!.fire()
+            self.mariobgAudioPlayer.play()
         }
         
     }
@@ -773,12 +789,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AsyncServerDelegate {
         self.paused = true
         self.crashCounter = 0
       //  print("sss\(self.scoreCounter)")
+        self.mariobgAudioPlayer.stop()
+        self.crashAudioPlayer.stop()
+        self.audioPlayer.stop()
+     //   self.gameoverAudioPlayer.stop()
         if gameTimer != nil {
             gameTimer!.invalidate()
             gameTimer = nil
         }
 
         NSNotificationCenter.defaultCenter().postNotificationName("showGameOverPopUp", object: nil, userInfo: ["score" :"\(scoreCounter)"])
+        
+        self.performSelector(#selector(GameScene.playAgian), withObject: nil, afterDelay: 10.0)
     }
     
     
